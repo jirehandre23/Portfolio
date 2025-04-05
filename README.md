@@ -59,16 +59,6 @@ My GitHub repositories are where I showcase various projects, including data ana
 
 [My GitHub Projects](https://github.com/dragoooooooooon34?tab=repositories)
 
----
-
-## Contact
-
-You can reach me through the following channels:
-
-- **Email:** jirehandre121@gmail.com
-- **Phone:** 805-940-5489
-- **Location:** New York, NY
-- **LinkedIn:** [linkedin.com/in/jirehandre](https://www.linkedin.com/in/jirehandre/)
 
 
 ## Technologies Used
