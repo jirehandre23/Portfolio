@@ -4,14 +4,14 @@
   --secondary: #1e40af;
   --text: #1e293b;
   --text-light: #475569;
-  --bg: #f8fafc;
+  --bg: #e5e7eb; /* Changed from #f8fafc to a light gray */
   --card-bg: #ffffff;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
-  
+
   /* Persistent Hero Section Colors */
   --hero-bg: #0f172a;
   --hero-text: #ffffff;
-  
+
   /* Other */
   --transition: all 0.3s ease;
 }
@@ -25,7 +25,7 @@
   --bg: #0f172a;
   --card-bg: #1e293b;
   --shadow: 0 4px 12px rgba(0,0,0,0.3);
-  
+
   /* Hero colors remain the same */
   --hero-bg: #0f172a;
   --hero-text: #ffffff;
@@ -513,7 +513,7 @@ footer .container {
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-info {
     max-width: 100%;
   }
@@ -523,7 +523,7 @@ footer .container {
   .hamburger {
     display: flex;
   }
-  
+
   .nav-links {
     position: fixed;
     top: 70px;
@@ -537,15 +537,15 @@ footer .container {
     transition: var(--transition);
     z-index: 999;
   }
-  
+
   .nav-links.active {
     left: 0;
   }
-  
+
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .hero p {
     font-size: 1rem;
   }
@@ -555,16 +555,16 @@ footer .container {
   .section {
     padding: 60px 0;
   }
-  
+
   .section h2 {
     font-size: 1.8rem;
     margin-bottom: 40px;
   }
-  
+
   .card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .about-grid {
     grid-template-columns: 1fr 1fr;
   }
