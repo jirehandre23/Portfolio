@@ -1,40 +1,91 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    background: #222;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  section {
-    padding: 20px;
-    margin: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  h2 {
-    color: #444;
-  }
-  
-  a {
-    color: #007acc;
-    text-decoration: none;
-  }
-  
-  footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 10px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+h1, h2 {
+  margin: 0.5em 0;
+}
+
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header Hero */
+.hero {
+  text-align: center;
+  background: #1e1e1e;
+  color: white;
+  padding: 40px 20px;
+}
+.avatar {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: 3px solid white;
+  margin-bottom: 10px;
+}
+
+/* Section Base */
+section {
+  padding: 30px;
+  margin: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Cards for Projects */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: 10px;
+  width: 220px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+.card img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* About Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 25px;
+  text-align: center;
+}
+.about-grid img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+}
