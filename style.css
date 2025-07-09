@@ -1,12 +1,13 @@
 :root {
   --primary: #0f172a;
   --secondary: #1e40af;
-  --text: #1e293b;  /* Changed from #333 to darker blue-gray */
-  --text-light: #475569;  /* Changed from #64748b to darker */
-  --bg: #f8fafc;  /* Changed from #f9fafb to slightly lighter */
+  --text: #1e293b;
+  --text-light: #475569;
+  --bg: #f8fafc;
   --card-bg: #ffffff;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
   --transition: all 0.3s ease;
+  --primary-text: #f8fafc; /* Added for hero section text */
 }
 
 [data-theme="dark"] {
@@ -17,6 +18,7 @@
   --bg: #0f172a;
   --card-bg: #1e293b;
   --shadow: 0 4px 12px rgba(0,0,0,0.3);
+  --primary-text: #0f172a; /* Dark color for text in dark mode */
 }
 
 * {
@@ -66,7 +68,7 @@ body {
 }
 
 .logo {
-  color: white;
+  color: var(--primary-text);
   font-weight: bold;
   font-size: 1.5rem;
   text-decoration: none;
@@ -79,7 +81,7 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: var(--primary-text);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition);
@@ -108,7 +110,7 @@ body {
 #theme-toggle {
   background: none;
   border: none;
-  color: white;
+  color: var(--primary-text);
   font-size: 1.2rem;
   cursor: pointer;
   transition: var(--transition);
@@ -123,7 +125,7 @@ body {
   display: none;
   background: none;
   border: none;
-  color: white;
+  color: var(--primary-text);
   font-size: 1.5rem;
   cursor: pointer;
   flex-direction: column;
@@ -136,14 +138,14 @@ body {
   display: block;
   width: 100%;
   height: 3px;
-  background: white;
+  background: var(--primary-text);
   transition: var(--transition);
 }
 
 /* Hero Section */
 .hero {
   background: var(--primary);
-  color: white;
+  color: var(--primary-text);
   text-align: center;
   padding: 150px 20px 80px;
   position: relative;
@@ -162,7 +164,7 @@ body {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border: 4px solid white;
+  border: 4px solid var(--primary-text);
   margin-bottom: 20px;
   transition: var(--transition);
 }
@@ -175,12 +177,13 @@ body {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: var(--primary-text);
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 25px;
-  color: #e2e8f0;
+  color: var(--primary-text);
 }
 
 .social-links {
@@ -191,7 +194,7 @@ body {
 }
 
 .social-links a {
-  color: white;
+  color: var(--primary-text);
   font-size: 1.5rem;
   transition: var(--transition);
 }
@@ -202,7 +205,7 @@ body {
 }
 
 .scroll-down {
-  color: white;
+  color: var(--primary-text);
   font-size: 1.5rem;
   display: inline-block;
   animation: bounce 2s infinite;
@@ -467,7 +470,7 @@ body {
 /* Footer */
 footer {
   background: var(--primary);
-  color: white;
+  color: var(--primary-text);
   padding: 30px 0;
   text-align: center;
 }
@@ -485,7 +488,7 @@ footer .container {
 }
 
 .footer-links a {
-  color: white;
+  color: var(--primary-text);
   font-size: 1.2rem;
   transition: var(--transition);
 }
