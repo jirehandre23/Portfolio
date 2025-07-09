@@ -1,9 +1,9 @@
 :root {
   --primary: #0f172a;
   --secondary: #1e40af;
-  --text: #333;
-  --text-light: #64748b;
-  --bg: #f9fafb;
+  --text: #1e293b;  /* Changed from #333 to darker blue-gray */
+  --text-light: #475569;  /* Changed from #64748b to darker */
+  --bg: #f8fafc;  /* Changed from #f9fafb to slightly lighter */
   --card-bg: #ffffff;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
   --transition: all 0.3s ease;
