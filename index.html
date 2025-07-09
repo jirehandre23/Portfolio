@@ -5,49 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jireh Andre's Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">JAB</a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
   <header class="hero">
-    <img src="IMG_2197.JPG" alt="Jireh Andre" class="avatar">
-    <h1>Jireh Andre Bitangila</h1>
-    <p>Economist • Policy Analyst • Data Enthusiast</p>
+    <div class="hero-content">
+      <img src="IMG_2197.JPG" alt="Jireh Andre" class="avatar">
+      <h1>Jireh Andre Bitangila</h1>
+      <p>Economist • Policy Analyst • Data Enthusiast</p>
+      <div class="social-links">
+        <a href="https://github.com/jirehandre23" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/jirehandre/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:jirehandre121@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <a href="#projects" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
   </header>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card-grid">
-      <a href="https://github.com/jirehandre23" class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="GitHub">
-        <p>GitHub Projects</p>
-      </a>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" alt="Mining Dashboard">
-        <p>Mining Concession Analysis</p>
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/4149/4149640.png" alt="HR Dashboard">
-        <p>HR Dashboards in Power BI</p>
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="card-grid">
+        <a href="https://github.com/jirehandre23" class="card" target="_blank">
+          <div class="card-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="GitHub">
+          </div>
+          <h3>GitHub Projects</h3>
+          <p>Explore all my coding projects and contributions</p>
+          <span class="card-link">View Projects <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/jirehandre23/Spatial_Python-QGIS_Project" class="card" target="_blank">
+          <div class="card-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" alt="Mining Dashboard">
+          </div>
+          <h3>Mining Concession Analysis</h3>
+          <p>Spatial analysis using Python and QGIS</p>
+          <span class="card-link">View Project <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="https://github.com/jirehandre23/HR_SQL-PowerBi_Project" class="card" target="_blank">
+          <div class="card-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4149/4149640.png" alt="HR Dashboard">
+          </div>
+          <h3>HR Dashboards</h3>
+          <p>SQL and Power BI HR analytics project</p>
+          <span class="card-link">View Project <i class="fas fa-arrow-right"></i></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <div class="about-grid">
-      <div><img src="https://cdn-icons-png.flaticon.com/512/3048/3048178.png" alt=""><p>Data-driven decision maker</p></div>
-      <div><img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt=""><p>SQL, Python & Power BI</p></div>
-      <div><img src="https://cdn-icons-png.flaticon.com/512/2856/2856386.png" alt=""><p>Geospatial analysis</p></div>
-      <div><img src="https://cdn-icons-png.flaticon.com/512/4781/4781517.png" alt=""><p>Trilingual 🇬🇧🇫🇷🇨🇩</p></div>
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About</h2>
+      <div class="about-grid">
+        <div class="skill">
+          <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3048/3048178.png" alt="">
+          </div>
+          <h3>Data-driven</h3>
+          <p>Evidence-based decision making</p>
+        </div>
+        <div class="skill">
+          <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="">
+          </div>
+          <h3>Tech Skills</h3>
+          <p>SQL, Python & Power BI</p>
+        </div>
+        <div class="skill">
+          <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2856/2856386.png" alt="">
+          </div>
+          <h3>Geospatial</h3>
+          <p>Spatial data analysis</p>
+        </div>
+        <div class="skill">
+          <div class="skill-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/4781/4781517.png" alt="">
+          </div>
+          <h3>Languages</h3>
+          <p>Trilingual 🇬🇧🇫🇷🇨🇩</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:jirehandre121@gmail.com">jirehandre121@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/jirehandre/">linkedin.com/in/jirehandre</a></p>
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Feel free to reach out for collaborations or just to say hello!</p>
+          <div class="contact-methods">
+            <a href="mailto:jirehandre121@gmail.com" class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>jirehandre121@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/jirehandre/" class="contact-item" target="_blank">
+              <i class="fab fa-linkedin"></i>
+              <span>linkedin.com/in/jirehandre</span>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
   </section>
 
-  <footer>© 2025 Jireh Andre Bitangila</footer>
+  <footer>
+    <div class="container">
+      <p>© 2025 Jireh Andre Bitangila</p>
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
