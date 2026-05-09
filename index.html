@@ -48,6 +48,9 @@ nav::before{
 .nav-links a:hover{color:var(--accent)}
 .nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:2px;transition:all 0.2s}
 .nav-cta:hover{background:var(--accent);color:#f5f4f0}
+.nav-actions{display:flex;gap:0.75rem;align-items:center}
+.nav-resume{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--border2);color:var(--text2);text-decoration:none;border-radius:2px;transition:all 0.2s}
+.nav-resume:hover{border-color:var(--accent);color:var(--accent)}
 
 /* Hamburger - hidden on desktop */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:600}
@@ -187,6 +190,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   nav{padding:1rem 1.25rem}
   .nav-links{display:none}
   .nav-cta{display:none}
+  .nav-actions{display:none}
   .nav-hamburger{display:flex}
 
   /* Hero: photo on top, text below */
@@ -273,7 +277,10 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
   </ul>
-  <a class="nav-cta" href="mailto:jirehandre121@gmail.com">Get in touch ↗</a>
+  <div class="nav-actions">
+    <a class="nav-resume" href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
+    <a class="nav-cta" href="mailto:jirehandre121@gmail.com">Get in touch ↗</a>
+  </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -284,6 +291,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   <a href="#projects">Work</a>
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
+  <a href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener" class="mm-cta">Resume ↓</a>
   <a href="mailto:jirehandre121@gmail.com" class="mm-cta">Get in touch ↗</a>
 </div>
 
@@ -299,6 +307,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <div class="hero-actions">
       <a href="#projects" class="btn-main">View my work</a>
       <a href="https://github.com/jirehandre23" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+      <a href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener" class="btn-outline">Resume ↓</a>
     </div>
     <div class="hero-numbers">
       <div>
