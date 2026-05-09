@@ -1,161 +1,466 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jireh Andre's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jireh Andre Bitangila — Finance & Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080909;
+  --surface:#0f1011;
+  --surface2:#161819;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.12);
+  --accent:#c8f060;
+  --accent-dim:rgba(200,240,96,0.1);
+  --accent-dim2:rgba(200,240,96,0.06);
+  --text:#f0f0ee;
+  --text2:#8a8f8a;
+  --text3:#555a55;
+  --syne:'Syne',sans-serif;
+  --inter:'Inter',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--inter);overflow-x:hidden;cursor:none}
+ 
+.cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.15s ease;transform:translate(-50%,-50%)}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,240,96,0.4);border-radius:50%;pointer-events:none;z-index:9998;transition:width 0.3s,height 0.3s,border-color 0.3s;transform:translate(-50%,-50%)}
+.cursor-ring.expanded{width:60px;height:60px;border-color:rgba(200,240,96,0.2)}
+ 
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem 3.5rem;
+}
+nav::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(8,9,9,0.75);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);z-index:-1;
+}
+.nav-logo{font-family:var(--syne);font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:-0.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--text2);text-decoration:none;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:2px;transition:all 0.2s}
+.nav-cta:hover{background:var(--accent);color:#080909}
+ 
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 480px;padding-top:80px;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 3.5rem;border-right:1px solid var(--border)}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem;opacity:0;animation:fadeUp 0.7s 0.2s forwards}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.s-pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+.hero-name{font-family:var(--syne);font-weight:800;font-size:clamp(3rem,5.5vw,5.2rem);line-height:0.95;letter-spacing:-0.03em;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.7s 0.35s forwards}
+.hero-name .line2{color:transparent;-webkit-text-stroke:1px rgba(240,240,238,0.35)}
+.hero-name .accent-w{color:var(--accent)}
+.hero-desc{font-size:15px;color:var(--text2);line-height:1.8;max-width:500px;margin-bottom:3rem;opacity:0;animation:fadeUp 0.7s 0.5s forwards}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s 0.65s forwards}
+.btn-main{font-family:var(--syne);font-weight:700;font-size:13px;letter-spacing:0.04em;padding:0.9rem 2.25rem;background:var(--accent);color:#080909;text-decoration:none;border-radius:2px;transition:all 0.2s;display:inline-block}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(200,240,96,0.25)}
+.btn-outline{font-family:var(--syne);font-weight:600;font-size:13px;letter-spacing:0.04em;padding:0.9rem 2.25rem;border:1px solid var(--border2);color:var(--text);text-decoration:none;border-radius:2px;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-numbers{display:flex;gap:3rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.7s 0.8s forwards}
+.hero-num-val{font-family:var(--syne);font-weight:800;font-size:2.2rem;letter-spacing:-0.04em;line-height:1;margin-bottom:0.25rem}
+.hero-num-val sup{color:var(--accent);font-size:1.3rem;vertical-align:super}
+.hero-num-label{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--text3);text-transform:uppercase}
+ 
+.hero-right{position:relative;overflow:hidden;opacity:0;animation:fadeIn 1s 0.4s forwards}
+.hero-photo{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(15%) contrast(1.05);display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 20%),linear-gradient(to top,var(--bg) 0%,transparent 25%)}
+.hero-tag-badge{position:absolute;bottom:2rem;right:2rem;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--text2);text-transform:uppercase;background:rgba(8,9,9,0.85);border:1px solid var(--border2);padding:0.5rem 1rem;border-radius:2px;backdrop-filter:blur(10px)}
+ 
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.25rem 0;overflow:hidden;background:var(--surface)}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:marquee 24s linear infinite}
+.marquee-item{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;color:var(--text3);text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;gap:1.25rem}
+.marquee-item::after{content:'◆';color:var(--accent);font-size:7px}
+ 
+.section{padding:6rem 3.5rem;max-width:1200px;margin:0 auto}
+.sec-label{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--accent)}
+.sec-title{font-family:var(--syne);font-weight:800;font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;line-height:1.1;margin-bottom:3.5rem}
+.sec-title em{color:var(--accent);font-style:normal}
+ 
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.about-body p{font-size:15px;color:var(--text2);line-height:1.9;margin-bottom:1.25rem}
+.about-body p strong{color:var(--text);font-weight:500}
+.about-stats{display:flex;flex-direction:column}
+.astat{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;border-bottom:1px solid var(--border)}
+.astat:first-child{border-top:1px solid var(--border)}
+.astat-lbl{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:var(--text3);text-transform:uppercase}
+.astat-val{font-family:var(--syne);font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-0.02em}
+ 
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.pcard{background:var(--bg);padding:2.5rem;transition:background 0.25s;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease}
+.pcard:hover{background:var(--surface)}
+.pcard:hover::before{transform:scaleX(1)}
+.pnum{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--text3);margin-bottom:2rem}
+.pcard h3{font-family:var(--syne);font-weight:700;font-size:1.15rem;letter-spacing:-0.02em;color:var(--text);margin-bottom:0.75rem;line-height:1.3}
+.pcard p{font-size:13px;color:var(--text2);line-height:1.75;flex:1;margin-bottom:2rem}
+.pfoot{display:flex;justify-content:space-between;align-items:flex-end}
+.ptags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.ptag{font-family:var(--mono);font-size:9px;letter-spacing:0.08em;padding:3px 8px;background:var(--accent-dim2);color:var(--text3);border:1px solid var(--border);text-transform:uppercase;border-radius:2px}
+.parr{font-size:1.1rem;color:var(--text3);transition:color 0.2s,transform 0.2s}
+.pcard:hover .parr{color:var(--accent);transform:translate(3px,-3px)}
+ 
+.exp-list{display:flex;flex-direction:column}
+.erow{display:grid;grid-template-columns:200px 1fr;gap:3rem;align-items:start;padding:2.5rem 0;border-bottom:1px solid var(--border)}
+.erow:first-child{border-top:1px solid var(--border)}
+.edate{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.04em;line-height:1.7;padding-top:3px}
+.ebody h3{font-family:var(--syne);font-weight:700;font-size:1rem;letter-spacing:-0.01em;color:var(--text);margin-bottom:0.3rem}
+.eorg{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:0.06em;margin-bottom:0.75rem}
+.ebody p{font-size:13px;color:var(--text2);line-height:1.75}
+.etags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1rem}
+ 
+.skills-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.scol{background:var(--bg);padding:2rem 1.75rem}
+.scol-lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.15em;color:var(--accent);text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.sitems{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
+.sitems li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:0.6rem}
+.sitems li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+ 
+.contact-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.contact-inner{max-width:1200px;margin:0 auto;padding:6rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.contact-big{font-family:var(--syne);font-weight:800;font-size:clamp(2.5rem,5vw,4.5rem);line-height:0.95;letter-spacing:-0.04em}
+.contact-big .ol{color:transparent;-webkit-text-stroke:1px rgba(240,240,238,0.2)}
+.contact-big .fi{color:var(--text)}
+.cright p{font-size:14px;color:var(--text2);line-height:1.85;margin-bottom:2rem}
+.clinks{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem}
+.clink{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--surface2);border:1px solid var(--border);border-radius:3px;text-decoration:none;transition:border-color 0.2s,background 0.2s}
+.clink:hover{border-color:var(--accent);background:var(--accent-dim)}
+.clink-l{display:flex;align-items:center;gap:1rem}
+.clink-type{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--text3);text-transform:uppercase;min-width:50px}
+.clink-val{font-size:13px;color:var(--text)}
+.clink-arr{font-size:0.9rem;color:var(--text3);transition:color 0.2s,transform 0.2s}
+.clink:hover .clink-arr{color:var(--accent);transform:translate(3px,-3px)}
+ 
+footer{padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--text3)}
+.fdot{color:var(--accent)}
+ 
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+ 
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+ 
+@media(max-width:900px){
+  nav{padding:1.25rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:5rem 1.5rem 3rem}
+  .hero-right{height:340px}
+  .section{padding:4rem 1.5rem}
+  .about-grid,.contact-inner{grid-template-columns:1fr;gap:3rem}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-wrap{grid-template-columns:1fr 1fr}
+  .erow{grid-template-columns:1fr;gap:0.5rem}
+  .contact-inner{padding:4rem 1.5rem}
+  footer{padding:1.5rem;flex-direction:column;gap:0.5rem;text-align:center}
+}
+</style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="logo">JAB</a>
-      <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
-      </div>
-      <button class="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+ 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+ 
+<nav>
+  <a class="nav-logo" href="#">JAB<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <a class="nav-cta" href="mailto:jirehandre121@gmail.com">Get in touch ↗</a>
+</nav>
+ 
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="s-pulse"></span> Available for new roles</div>
+    <h1 class="hero-name">
+      Jireh<br>
+      <span class="line2">Andre</span><br>
+      <span class="accent-w">Bitangila</span>
+    </h1>
+    <p class="hero-desc">Finance analyst and data systems builder. I evaluate impact investments, build analytical infrastructure, and help institutions make better decisions with complex data.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-main">View my work</a>
+      <a href="https://github.com/jirehandre23" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
     </div>
-  </nav>
-
-  <header class="hero">
-    <div class="hero-content">
-      <img src="IMG_2197.JPG" alt="Jireh Andre" class="avatar">
-      <h1>Jireh Andre Bitangila</h1>
-      <p>Business Strategy • Data Systems • Operational Intelligence</p>
-      <div class="social-links">
-        <a href="https://github.com/jirehandre23" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/jirehandre/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:jirehandre121@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <div class="hero-numbers">
+      <div>
+        <div class="hero-num-val">160<sup>+</sup></div>
+        <div class="hero-num-label">Institutions screened</div>
       </div>
-      <a href="#projects" class="scroll-down">
-        <i class="fas fa-chevron-down"></i>
-      </a>
+      <div>
+        <div class="hero-num-val">$60<sup>M+</sup></div>
+        <div class="hero-num-label">Loan vol. reviewed</div>
+      </div>
+      <div>
+        <div class="hero-num-val">4<sup>+</sup></div>
+        <div class="hero-num-label">Years experience</div>
+      </div>
     </div>
-  </header>
-
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Projects</h2>
-      <div class="card-grid">
-        <a href="https://github.com/jirehandre23" class="card" target="_blank">
-          <div class="card-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="GitHub">
-          </div>
-          <h3>GitHub Projects</h3>
-          <p>Explore all my coding projects and contributions</p>
-          <span class="card-link">View Projects <i class="fas fa-arrow-right"></i></span>
+  </div>
+ 
+  <div class="hero-right">
+    <img class="hero-photo" src="profile.jpg" alt="Jireh Andre Bitangila"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-tag-badge">New York, NY · 2026</div>
+  </div>
+</div>
+ 
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Impact Finance</div>
+    <div class="marquee-item">SQL & Python</div>
+    <div class="marquee-item">Investment Screening</div>
+    <div class="marquee-item">Geospatial Analysis</div>
+    <div class="marquee-item">Tableau & Power BI</div>
+    <div class="marquee-item">ESG Frameworks</div>
+    <div class="marquee-item">Charter School Finance</div>
+    <div class="marquee-item">Sustainability Research</div>
+    <div class="marquee-item">Financial Modeling</div>
+    <div class="marquee-item">Impact Finance</div>
+    <div class="marquee-item">SQL & Python</div>
+    <div class="marquee-item">Investment Screening</div>
+    <div class="marquee-item">Geospatial Analysis</div>
+    <div class="marquee-item">Tableau & Power BI</div>
+    <div class="marquee-item">ESG Frameworks</div>
+    <div class="marquee-item">Charter School Finance</div>
+    <div class="marquee-item">Sustainability Research</div>
+    <div class="marquee-item">Financial Modeling</div>
+  </div>
+</div>
+ 
+<section class="section" id="about">
+  <div class="reveal">
+    <div class="sec-label">About</div>
+    <h2 class="sec-title">Finance meets <em>systems thinking.</em></h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-body">
+      <p>I'm a finance analyst and self-taught data builder with a background spanning environmental economics, impact lending, and operational intelligence. My work sits at the intersection of <strong>rigorous financial analysis</strong> and the kind of systems design that makes institutions run better.</p>
+      <p>Currently at <strong>Equitable Facilities Fund</strong> through the Ed Pioneers Fellowship, I evaluate charter school financing transactions, prepare investment screening memos, and analyze debt service coverage, liquidity, and equity-focused indicators to support mission-aligned lending decisions.</p>
+      <p>I'm drawn to questions that require holding financial and non-financial logic simultaneously — and to roles where that kind of thinking can move capital toward better outcomes.</p>
+    </div>
+    <div class="about-stats">
+      <div class="astat"><span class="astat-lbl">Current role</span><span class="astat-val">Ed Pioneers Fellow @ EFF</span></div>
+      <div class="astat"><span class="astat-lbl">Focus</span><span class="astat-val">Impact Finance</span></div>
+      <div class="astat"><span class="astat-lbl">Education</span><span class="astat-val">UC Berkeley, B.S. EnvEcon</span></div>
+      <div class="astat"><span class="astat-lbl">Languages</span><span class="astat-val">EN · FR · Lingala</span></div>
+      <div class="astat"><span class="astat-lbl">Based in</span><span class="astat-val">New York, NY</span></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="section" id="projects" style="padding-top:0">
+  <div class="reveal">
+    <div class="sec-label">Selected work</div>
+    <h2 class="sec-title">Projects that <em>prove it.</em></h2>
+  </div>
+  <div class="projects-grid reveal">
+    <a class="pcard" href="https://github.com/jirehandre23/Spatial_Python-QGIS_Project" target="_blank" rel="noopener">
+      <div class="pnum">01</div>
+      <h3>Congo Basin Mining Concession Analysis</h3>
+      <p>Geospatial analysis of industrial mining activity across Central Africa. Cleaned concession data, visualized distribution patterns using GeoPandas and QGIS, and surfaced environmental and regulatory insights to support NGO and policy research.</p>
+      <div class="pfoot">
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">GeoPandas</span><span class="ptag">QGIS</span><span class="ptag">Spatial</span></div>
+        <span class="parr">↗</span>
+      </div>
+    </a>
+    <a class="pcard" href="https://github.com/jirehandre23/HR_SQL-PowerBi_Project" target="_blank" rel="noopener">
+      <div class="pnum">02</div>
+      <h3>HR Analytics Pipeline & Dashboard</h3>
+      <p>End-to-end analytics pipeline across 22,000+ employee records from 2000–2020. Cleaned and queried in MySQL Workbench, visualized in Power BI. Surfaced turnover rates by department, age distributions, tenure patterns, and remote vs. HQ breakdowns.</p>
+      <div class="pfoot">
+        <div class="ptags"><span class="ptag">MySQL</span><span class="ptag">Power BI</span><span class="ptag">Data Cleaning</span></div>
+        <span class="parr">↗</span>
+      </div>
+    </a>
+    <a class="pcard" href="https://github.com/jirehandre23/Netflix_SQL" target="_blank" rel="noopener">
+      <div class="pnum">03</div>
+      <h3>Netflix Content Analysis via SQL</h3>
+      <p>SQL-driven exploration of Netflix's full library using PostgreSQL. Solved 15 structured business problems — content-type distribution, genre classification, regional trends, and keyword-based categorization. Demonstrates ability to translate business questions into precise queries.</p>
+      <div class="pfoot">
+        <div class="ptags"><span class="ptag">PostgreSQL</span><span class="ptag">SQL</span><span class="ptag">Analytics</span></div>
+        <span class="parr">↗</span>
+      </div>
+    </a>
+    <a class="pcard" href="https://linkedin.com/in/jirehandre" target="_blank" rel="noopener">
+      <div class="pnum">04</div>
+      <h3>Charter School Investment Screening</h3>
+      <p>At EFF, built analytical frameworks to evaluate 160+ charter school financing transactions annually. Models incorporate DCOH, debt service coverage, enrollment trends, and equity indicators to support mission-aligned lending decisions worth $60M+ in aggregate volume.</p>
+      <div class="pfoot">
+        <div class="ptags"><span class="ptag">Impact Finance</span><span class="ptag">Salesforce</span><span class="ptag">Tableau</span></div>
+        <span class="parr">↗</span>
+      </div>
+    </a>
+  </div>
+</section>
+ 
+<section class="section" id="experience" style="padding-top:0">
+  <div class="reveal">
+    <div class="sec-label">Experience</div>
+    <h2 class="sec-title">Where I've <em>worked.</em></h2>
+  </div>
+  <div class="exp-list reveal">
+    <div class="erow">
+      <div class="edate">Sep 2025<br>Present</div>
+      <div class="ebody">
+        <h3>Analyst, School Lending & Outreach</h3>
+        <div class="eorg">Equitable Facilities Fund · Ed Pioneers Fellow</div>
+        <p>Evaluating charter school financing across 160+ institutional prospects. Preparing investment screening memos incorporating academic performance, enrollment trends, financial sustainability, and equity indicators.</p>
+        <div class="etags"><span class="ptag">Impact Finance</span><span class="ptag">Financial Modeling</span><span class="ptag">Salesforce</span><span class="ptag">Tableau</span></div>
+      </div>
+    </div>
+    <div class="erow">
+      <div class="edate">Jun 2025<br>Sep 2025</div>
+      <div class="ebody">
+        <h3>Strategy & Operations Intern</h3>
+        <div class="eorg">Co & Consulting, LLC</div>
+        <p>Built operational dashboards for real-time KPI reporting. Designed API-integrated pipelines cutting data processing time by 50%. Developed process documentation for engineering updates.</p>
+        <div class="etags"><span class="ptag">Excel</span><span class="ptag">Airtable</span><span class="ptag">API Integration</span></div>
+      </div>
+    </div>
+    <div class="erow">
+      <div class="edate">Sep 2024<br>May 2025</div>
+      <div class="ebody">
+        <h3>Assessment & Data Associate</h3>
+        <div class="eorg">Success Academy Charter Schools</div>
+        <p>Built KPI dashboards in Looker and Excel for instructional performance and state compliance. Automated validation workflows via Excel macros, reducing manual work by 30%.</p>
+        <div class="etags"><span class="ptag">Looker</span><span class="ptag">Excel</span><span class="ptag">SQL</span></div>
+      </div>
+    </div>
+    <div class="erow">
+      <div class="edate">May 2023<br>Jun 2024</div>
+      <div class="ebody">
+        <h3>Research Analyst</h3>
+        <div class="eorg">Earth Insight</div>
+        <p>Conducted environmental and economic research on sustainability and climate regulatory trends. Built Python-based analytical tools reducing quarterly reconciliation time by 30%. Spatial analysis using QGIS.</p>
+        <div class="etags"><span class="ptag">Python</span><span class="ptag">QGIS</span><span class="ptag">Sustainability</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="section" id="skills" style="padding-top:0">
+  <div class="reveal">
+    <div class="sec-label">Capabilities</div>
+    <h2 class="sec-title">What I <em>bring.</em></h2>
+  </div>
+  <div class="skills-wrap reveal">
+    <div class="scol">
+      <div class="scol-lbl">Finance & Analysis</div>
+      <ul class="sitems">
+        <li>Investment Screening</li>
+        <li>Financial Modeling</li>
+        <li>DCOH & DSCR Analysis</li>
+        <li>Impact & ESG Frameworks</li>
+        <li>Risk Assessment</li>
+        <li>Portfolio Reporting</li>
+      </ul>
+    </div>
+    <div class="scol">
+      <div class="scol-lbl">Data & Engineering</div>
+      <ul class="sitems">
+        <li>SQL (MySQL, PostgreSQL)</li>
+        <li>Python (Pandas, GeoPandas)</li>
+        <li>Tableau / Power BI / Looker</li>
+        <li>Salesforce CRM</li>
+        <li>QGIS & Spatial Analysis</li>
+        <li>Excel (Advanced)</li>
+      </ul>
+    </div>
+    <div class="scol">
+      <div class="scol-lbl">Strategy & Ops</div>
+      <ul class="sitems">
+        <li>Executive Presentations</li>
+        <li>Cross-functional Collab</li>
+        <li>Process Documentation</li>
+        <li>Workflow Automation</li>
+        <li>Regulatory Research</li>
+        <li>Market Analysis</li>
+      </ul>
+    </div>
+    <div class="scol">
+      <div class="scol-lbl">Languages</div>
+      <ul class="sitems">
+        <li>English — Fluent</li>
+        <li>French — Fluent</li>
+        <li>Lingala — Native</li>
+      </ul>
+      <br>
+      <div class="scol-lbl">Education</div>
+      <ul class="sitems">
+        <li>UC Berkeley, B.S. EnvEcon</li>
+        <li>SQL — EDX Bootcamp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+ 
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-big reveal">
+      <div class="ol">Let's</div>
+      <div class="ol">work</div>
+      <div class="fi">together.</div>
+    </div>
+    <div class="cright reveal">
+      <p>Open to roles in impact investing, sustainability finance, and data-driven strategy. If you're working on something at the edge of capital and purpose, I'd like to hear about it.</p>
+      <div class="clinks">
+        <a class="clink" href="mailto:jirehandre121@gmail.com">
+          <div class="clink-l"><span class="clink-type">Email</span><span class="clink-val">jirehandre121@gmail.com</span></div>
+          <span class="clink-arr">↗</span>
         </a>
-        <a href="https://github.com/jirehandre23/Spatial_Python-QGIS_Project" class="card" target="_blank">
-          <div class="card-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4150/4150897.png" alt="Mining Dashboard">
-          </div>
-          <h3>Mining Concession Analysis</h3>
-          <p>Spatial analysis using Python and QGIS</p>
-          <span class="card-link">View Project <i class="fas fa-arrow-right"></i></span>
+        <a class="clink" href="https://linkedin.com/in/jirehandre" target="_blank" rel="noopener">
+          <div class="clink-l"><span class="clink-type">LinkedIn</span><span class="clink-val">linkedin.com/in/jirehandre</span></div>
+          <span class="clink-arr">↗</span>
         </a>
-        <a href="https://github.com/jirehandre23/HR_SQL-PowerBi_Project" class="card" target="_blank">
-          <div class="card-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4149/4149640.png" alt="HR Dashboard">
-          </div>
-          <h3>HR Dashboards</h3>
-          <p>SQL and Power BI HR analytics project</p>
-          <span class="card-link">View Project <i class="fas fa-arrow-right"></i></span>
+        <a class="clink" href="https://github.com/jirehandre23" target="_blank" rel="noopener">
+          <div class="clink-l"><span class="clink-type">GitHub</span><span class="clink-val">github.com/jirehandre23</span></div>
+          <span class="clink-arr">↗</span>
         </a>
       </div>
+      <a href="mailto:jirehandre121@gmail.com" class="btn-main">Send a message ↗</a>
     </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About</h2>
-      <div class="about-grid">
-        <div class="skill">
-          <div class="skill-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/3048/3048178.png" alt="">
-          </div>
-          <h3>Data-driven</h3>
-          <p>Evidence-based decision making</p>
-        </div>
-        <div class="skill">
-          <div class="skill-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4248/4248443.png" alt="">
-          </div>
-          <h3>Tech Skills</h3>
-          <p>SQL, Python & Power BI</p>
-        </div>
-        <div class="skill">
-          <div class="skill-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/2856/2856386.png" alt="">
-          </div>
-          <h3>Geospatial</h3>
-          <p>Spatial data analysis</p>
-        </div>
-        <div class="skill">
-          <div class="skill-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/4781/4781517.png" alt="">
-          </div>
-          <h3>Languages</h3>
-          <p>Trilingual 🇬🇧🇫🇷🇨🇩</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Get in Touch</h3>
-          <p>Feel free to reach out for collaborations or just to say hello!</p>
-          <div class="contact-methods">
-            <a href="mailto:jirehandre121@gmail.com" class="contact-item">
-              <i class="fas fa-envelope"></i>
-              <span>jirehandre121@gmail.com</span>
-            </a>
-            <a href="https://linkedin.com/in/jirehandre/" class="contact-item" target="_blank">
-              <i class="fab fa-linkedin"></i>
-              <span>linkedin.com/in/jirehandre</span>
-            </a>
-          </div>
-        </div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>© 2025 Jireh Andre Bitangila</p>
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fas fa-envelope"></i></a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  </div>
+</div>
+ 
+<footer>
+  <p>© 2026 Jireh Andre Bitangila<span class="fdot"> ◆</span></p>
+  <p>New York, NY</p>
+</footer>
+ 
+<script>
+const cursor=document.getElementById('cursor');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('expanded'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
 </body>
 </html>
