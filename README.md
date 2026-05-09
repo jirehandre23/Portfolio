@@ -1,71 +1,39 @@
-# Portfolio
-
-# Jireh Andre's Portfolio
-
-Welcome to my online portfolio! I am Jireh Andre Bitangila, an Environmental Economist, Policy Analyst, and Data Enthusiast based in New York City. This website showcases my professional background, highlighted projects, and contact information.
-
-## About Me
-
-I specialize in business analysis, policy research, and data analytics. I have experience in leveraging data-driven insights to influence strategic decisions. Currently, I am working as an Assessment & Data Associate at Success Academy Charter Schools, leading data governance initiatives and collaborating across departments to improve operational efficiency.
-
+# Jireh Andre Bitangila — Portfolio
+ 
+Personal portfolio website built with HTML, CSS, and JavaScript. Deployed via GitHub Pages.
+ 
+🌐 **Live site:** [jirehandre23.github.io/Portfolio](https://jirehandre23.github.io/Portfolio)
+ 
 ---
-
-## Resume Summary
-
-### Jireh Andre Bitangila  
-**Environmental Economist | Policy Analyst | Data Enthusiast**  
-**Location:** New York, NY  
-**Email:** jirehandre121@gmail.com  
-**Phone:** 805-940-5489  
-**LinkedIn:** [linkedin.com/in/jirehandre](https://www.linkedin.com/in/jirehandre/)
-
-### **Summary**
-I am an economist with expertise in business analysis, policy research, and data analytics. Based in New York City, I specialize in transforming complex data into actionable insights to guide strategic decisions. Currently, I serve as an Assessment & Data Associate at Success Academy Charter Schools, where I lead data initiatives for over 420 students and drive cross-functional collaboration using tools such as Tableau, MySQL, and Excel.
-
-### **Experience**
-
-**Assessment & Data Associate**  
-*Success Academy Charter Schools*  
-*Date of Employment – Present*
-
-- Lead data governance efforts and manage dashboard creation for school-wide data.
-- Collaborate with multiple departments to improve data-driven decision-making processes.
-- Utilize tools like Tableau, MySQL, and Excel for data analysis and reporting.
-
-
-### **Education**
-**[B.S] in [Economics & Environmental Policy]**  
-*UC Berkeley*  
-
-
-### **Skills**
-- Data Analytics (Excel, Tableau, SQL, PowerBI)
-- Data Visualization
-- Policy Analysis
-- Strategic Planning
-- Cross-Functional Collaboration
-- Project Management
-
-
-### **Certifications & Professional Development**
-- [SQL For Data Analyst], [IBM] – [2025]
-- [SQL for Healthcare Professionals], [LinkedIn] – [2024]
-
+ 
+## About
+ 
+I'm a finance analyst and data systems builder based in New York City. Currently an Analyst at [Equitable Facilities Fund](https://equitablefacilities.org) through the Ed Pioneers Fellowship, where I evaluate charter school financing transactions across a national pipeline of 160+ institutional prospects.
+ 
+My background spans impact finance, environmental economics, geospatial analysis, and operational intelligence. I work at the intersection of rigorous financial analysis and the kind of systems design that makes institutions run better.
+ 
 ---
-
-## Projects
-
-My GitHub repositories are where I showcase various projects, including data analysis work, visualizations, and other professional endeavors. You can explore my projects here:
-
-[My GitHub Projects](https://github.com/dragoooooooooon34?tab=repositories)
-
-
-
-## Technologies Used
-
-- HTML
-- CSS
-- GitHub Pages
-- Git
-
+ 
+## Featured Projects
+ 
+| Project | Description | Tools |
+|---|---|---|
+| [Congo Basin Mining Analysis](https://github.com/jirehandre23/Spatial_Python-QGIS_Project) | Geospatial analysis of mining concessions across Central Africa | Python, GeoPandas, QGIS, Matplotlib |
+| [HR Analytics Dashboard](https://github.com/jirehandre23/HR_SQL-PowerBi_Project) | End-to-end HR analytics pipeline across 22,000+ employee records | MySQL, Power BI |
+| [Netflix SQL Analysis](https://github.com/jirehandre23/Netflix_SQL) | SQL-driven exploration of Netflix's content library — 15 business problems solved | PostgreSQL |
+ 
 ---
+ 
+## Stack
+ 
+- **Frontend:** HTML, CSS, JavaScript
+- **Hosting:** GitHub Pages
+- **Analytics & Data:** SQL, Python, Tableau, Power BI, Looker, QGIS
+- **Finance & CRM:** Salesforce (AIM), Excel (Advanced)
+---
+ 
+## Contact
+ 
+- **Email:** jirehandre121@gmail.com
+- **LinkedIn:** [linkedin.com/in/jirehandre](https://linkedin.com/in/jirehandre)
+- **Location:** New York, NY
