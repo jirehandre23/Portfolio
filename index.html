@@ -163,6 +163,28 @@ footer{padding:2rem 3.5rem;display:flex;justify-content:space-between;align-item
 footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--text3)}
 .fdot{color:var(--accent)}
 
+/* ── CONSULTING ── */
+.consulting-services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-bottom:1px}
+.svc-card{background:var(--bg);padding:2.5rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background 0.25s}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease}
+.svc-card:hover{background:var(--surface)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-num{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--text3);margin-bottom:2rem}
+.svc-card h3{font-family:var(--syne);font-weight:700;font-size:1.1rem;letter-spacing:-0.02em;color:var(--text);margin-bottom:0.75rem;line-height:1.3}
+.svc-card>p{font-size:13px;color:var(--text2);line-height:1.75;flex:1;margin-bottom:1.5rem}
+.svc-delivers{list-style:none;display:flex;flex-direction:column;gap:0.45rem}
+.svc-delivers li{font-size:12px;color:var(--text3);display:flex;align-items:center;gap:0.55rem}
+.svc-delivers li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+.booking-banner{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2.5rem;display:flex;justify-content:space-between;align-items:center;gap:2.5rem;margin-top:4rem}
+.booking-text h3{font-family:var(--syne);font-weight:800;font-size:1.55rem;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.4rem}
+.booking-text>p{font-size:14px;color:var(--text2);line-height:1.7;max-width:500px}
+.booking-meta{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:0.85rem}
+.bmeta-item{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;color:var(--text3);text-transform:uppercase;display:flex;align-items:center;gap:0.4rem}
+.bmeta-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+.btn-book{font-family:var(--syne);font-weight:700;font-size:13px;letter-spacing:0.04em;padding:1rem 2.5rem;background:var(--accent);color:#f5f4f0;text-decoration:none;border-radius:2px;transition:all 0.2s;white-space:nowrap;display:inline-block;flex-shrink:0}
+.btn-book:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(42,107,74,0.3)}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -244,6 +266,12 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .scol{padding:1.5rem 1rem}
   .sitems li{font-size:12px}
 
+  /* Consulting */
+  .consulting-services{grid-template-columns:1fr}
+  .svc-card{padding:1.75rem 1.25rem}
+  .booking-banner{flex-direction:column;align-items:flex-start;padding:2rem 1.25rem;gap:1.75rem}
+  .btn-book{width:100%;text-align:center;padding:0.9rem 1.5rem}
+
   /* Contact */
   .contact-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 1.25rem}
   .contact-big{font-size:clamp(2rem,9vw,3rem)}
@@ -276,6 +304,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#consulting">Consulting</a></li>
   </ul>
   <div class="nav-actions">
     <a class="nav-resume" href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
@@ -291,6 +320,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   <a href="#projects">Work</a>
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
+  <a href="#consulting">Consulting</a>
   <a href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener" class="mm-cta">Resume ↓</a>
   <a href="mailto:jirehandre121@gmail.com" class="mm-cta">Get in touch ↗</a>
 </div>
@@ -519,6 +549,77 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
         <li>SQL — EDX Bootcamp</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="section" id="consulting" style="padding-top:0">
+  <div class="reveal">
+    <div class="sec-label">Consulting</div>
+    <h2 class="sec-title">Work with me <em>directly.</em></h2>
+  </div>
+  <div class="consulting-services reveal">
+
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <h3>AI Implementation</h3>
+      <p>Bring AI tools into your workflows in ways that actually stick. From identifying the right use cases to configuring and deploying solutions, I help teams move from "we should use AI" to operational results.</p>
+      <ul class="svc-delivers">
+        <li>Workflow automation with AI tools</li>
+        <li>LLM integration & prompt engineering</li>
+        <li>AI-assisted reporting & dashboards</li>
+        <li>Team enablement & documentation</li>
+      </ul>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <h3>Data Cleaning & Operations</h3>
+      <p>Messy data costs time and credibility. I build clean, reliable pipelines that transform raw exports into structured, analysis-ready assets — so your team can focus on decisions, not spreadsheet wrangling.</p>
+      <ul class="svc-delivers">
+        <li>SQL & Python-based data cleaning</li>
+        <li>Pipeline design & documentation</li>
+        <li>KPI dashboards (Power BI, Tableau, Looker)</li>
+        <li>Validation workflows & quality checks</li>
+      </ul>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <h3>Outreach & Operations</h3>
+      <p>Systematic outreach that scales. I design and build outreach infrastructure — sequences, CRM setup, tracking frameworks — so you can reach the right people without losing the personal touch.</p>
+      <ul class="svc-delivers">
+        <li>Email sequence design & copywriting</li>
+        <li>CRM setup & contact management</li>
+        <li>Lead tracking & pipeline reporting</li>
+        <li>Campaign performance analysis</li>
+      </ul>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <h3>Resume Writing</h3>
+      <p>A resume that tells your story clearly and passes the systems designed to filter it out. I write ATS-optimized, achievement-focused resumes tailored to your target roles in finance, tech, and mission-driven sectors.</p>
+      <ul class="svc-delivers">
+        <li>ATS-optimized formatting & keywords</li>
+        <li>Achievement-first storytelling</li>
+        <li>Tailored to specific roles & sectors</li>
+        <li>Cover letter & LinkedIn alignment</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="booking-banner reveal">
+    <div class="booking-text">
+      <h3>Ready to get started?</h3>
+      <p>Book a free 45-minute consultation via Google Meet. We'll talk through your project, what you're trying to solve, and how I can help — no commitment required.</p>
+      <div class="booking-meta">
+        <span class="bmeta-item"><span class="bmeta-dot"></span>45 minutes</span>
+        <span class="bmeta-item"><span class="bmeta-dot"></span>Google Meet</span>
+        <span class="bmeta-item"><span class="bmeta-dot"></span>Free discovery call</span>
+      </div>
+    </div>
+    <a class="btn-book" href="https://calendar.app.google/rG86A7rdQJjZkF1q8" target="_blank" rel="noopener">Book a consultation ↗</a>
   </div>
 </section>
 
