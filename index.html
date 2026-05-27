@@ -48,18 +48,22 @@ nav::before{
 .nav-links a:hover{color:var(--accent)}
 .nav-links a.nav-consult-link{color:var(--accent);border:1px solid var(--accent);padding:0.3rem 0.75rem;border-radius:2px;transition:all 0.2s}
 .nav-links a.nav-consult-link:hover{background:var(--accent);color:#f5f4f0}
+.nav-links a.nav-book-link{background:var(--accent);color:#f5f4f0;padding:0.3rem 0.75rem;border-radius:2px;transition:all 0.2s}
+.nav-links a.nav-book-link:hover{opacity:0.85;color:#f5f4f0}
 .nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:2px;transition:all 0.2s}
 .nav-cta:hover{background:var(--accent);color:#f5f4f0}
 .nav-actions{display:flex;gap:0.75rem;align-items:center}
 .nav-resume{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--border2);color:var(--text2);text-decoration:none;border-radius:2px;transition:all 0.2s}
 .nav-resume:hover{border-color:var(--accent);color:var(--accent)}
 
+/* Hamburger - hidden on desktop */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:600}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
+/* Mobile menu */
 .mobile-menu{
   display:none;position:fixed;top:0;left:0;right:0;bottom:0;
   background:var(--bg);z-index:400;
@@ -209,15 +213,30 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 @media(max-width:768px){
   body{cursor:auto}
   .cursor,.cursor-ring{display:none}
+
+  /* Nav */
   nav{padding:1rem 1.25rem}
   .nav-links{display:none}
   .nav-cta{display:none}
   .nav-actions{display:none}
   .nav-hamburger{display:flex}
-  .hero{display:flex;flex-direction:column;min-height:auto;padding-top:60px}
-  .hero-right{order:0;height:55vw;min-height:220px;max-height:340px;border-right:none;border-bottom:1px solid var(--border)}
-  .hero-overlay{background:linear-gradient(to bottom,transparent 50%,var(--bg) 100%)}
-  .hero-left{order:1;padding:2.5rem 1.25rem 3.5rem;border-right:none}
+
+  /* Hero: photo on top, text below */
+  .hero{
+    display:flex;flex-direction:column;
+    min-height:auto;padding-top:60px;
+  }
+  .hero-right{
+    order:0;height:55vw;min-height:220px;max-height:340px;
+    border-right:none;border-bottom:1px solid var(--border);
+  }
+  .hero-overlay{
+    background:linear-gradient(to bottom,transparent 50%,var(--bg) 100%);
+  }
+  .hero-left{
+    order:1;padding:2.5rem 1.25rem 3.5rem;
+    border-right:none;
+  }
   .hero-eyebrow{margin-bottom:1rem;font-size:10px}
   .hero-name{font-size:clamp(2.4rem,9vw,3.4rem);margin-bottom:1rem}
   .hero-desc{font-size:14px;margin-bottom:2rem}
@@ -227,21 +246,33 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .hero-num-val{font-size:1.8rem}
   .hero-num-label{font-size:9px}
   .hero-tag-badge{bottom:0.75rem;right:0.75rem;font-size:9px;padding:0.35rem 0.65rem}
+
+  /* Sections */
   .section{padding:3.5rem 1.25rem}
   .sec-title{font-size:1.8rem;margin-bottom:2.25rem}
+
+  /* About */
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .about-body p{font-size:14px}
   .astat{flex-direction:column;align-items:flex-start;gap:0.25rem;padding:1rem 0}
   .astat-val{font-size:0.95rem}
+
+  /* Projects */
   .projects-grid{grid-template-columns:1fr}
   .pcard{padding:1.75rem 1.25rem}
   .pcard h3{font-size:1rem}
   .pcard p{font-size:13px}
+
+  /* Experience */
   .erow{grid-template-columns:1fr;gap:0.5rem;padding:1.75rem 0}
   .edate{margin-bottom:0.25rem}
+
+  /* Skills */
   .skills-wrap{grid-template-columns:1fr 1fr}
   .scol{padding:1.5rem 1rem}
   .sitems li{font-size:12px}
+
+  /* Consulting */
   .consulting-services{grid-template-columns:1fr}
   .svc-card{padding:1.75rem 1.25rem}
   .svc-card h3{font-size:1.05rem}
@@ -252,12 +283,18 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .booking-text>p{font-size:13px}
   .bmeta-item{font-size:9px}
   .btn-book{width:100%;text-align:center;padding:1rem 1.5rem;font-size:14px}
+
+  /* Hero buttons on mobile */
   .btn-consult{font-size:12px;padding:0.75rem 1.4rem}
+
+  /* Contact */
   .contact-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 1.25rem}
   .contact-big{font-size:clamp(2rem,9vw,3rem)}
   .cright p{font-size:13px}
   .clink{padding:0.85rem 1rem}
   .clink-val{font-size:12px}
+
+  /* Footer */
   footer{padding:1.5rem 1.25rem;flex-direction:column;gap:0.5rem;text-align:center}
 }
 
@@ -283,6 +320,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#consulting" class="nav-consult-link">Consulting ↗</a></li>
+    <li><a href="https://calendar.app.google/rG86A7rdQJjZkF1q8" target="_blank" rel="noopener" class="nav-book-link">Book a call ↗</a></li>
   </ul>
   <div class="nav-actions">
     <a class="nav-resume" href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
@@ -333,6 +371,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
       </div>
     </div>
   </div>
+
   <div class="hero-right">
     <img class="hero-photo" src="profile.jpg" alt="Jireh Andre Bitangila"/>
     <div class="hero-overlay"></div>
@@ -639,6 +678,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 </footer>
 
 <script>
+// Custom cursor (desktop only)
 const cursor=document.getElementById('cursor');
 const ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -656,6 +696,7 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));
 });
 
+// Hamburger menu
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
 hamburger.addEventListener('click',()=>{
@@ -671,6 +712,7 @@ mobileMenu.querySelectorAll('a').forEach(a=>{
   });
 });
 
+// Scroll reveal
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
