@@ -46,6 +46,8 @@ nav::before{
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;color:var(--text2);text-decoration:none;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
+.nav-links a.nav-consult-link{color:var(--accent);border:1px solid var(--accent);padding:0.3rem 0.75rem;border-radius:2px;transition:all 0.2s}
+.nav-links a.nav-consult-link:hover{background:var(--accent);color:#f5f4f0}
 .nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:2px;transition:all 0.2s}
 .nav-cta:hover{background:var(--accent);color:#f5f4f0}
 .nav-actions{display:flex;gap:0.75rem;align-items:center}
@@ -84,6 +86,8 @@ nav::before{
 .btn-main:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(42,107,74,0.25)}
 .btn-outline{font-family:var(--syne);font-weight:600;font-size:13px;letter-spacing:0.04em;padding:0.9rem 2.25rem;border:1px solid var(--border2);color:var(--text);text-decoration:none;border-radius:2px;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-consult{font-family:var(--syne);font-weight:700;font-size:13px;letter-spacing:0.04em;padding:0.9rem 2.25rem;border:1.5px solid var(--accent);color:var(--accent);text-decoration:none;border-radius:2px;transition:all 0.2s;display:inline-block}
+.btn-consult:hover{background:var(--accent);color:#f5f4f0;transform:translateY(-2px)}
 .hero-numbers{display:flex;gap:3rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.7s 0.8s forwards}
 .hero-num-val{font-family:var(--syne);font-weight:800;font-size:2.2rem;letter-spacing:-0.04em;line-height:1;margin-bottom:0.25rem}
 .hero-num-val sup{color:var(--accent);font-size:1.3rem;vertical-align:super}
@@ -269,8 +273,17 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   /* Consulting */
   .consulting-services{grid-template-columns:1fr}
   .svc-card{padding:1.75rem 1.25rem}
-  .booking-banner{flex-direction:column;align-items:flex-start;padding:2rem 1.25rem;gap:1.75rem}
-  .btn-book{width:100%;text-align:center;padding:0.9rem 1.5rem}
+  .svc-card h3{font-size:1.05rem}
+  .svc-card>p{font-size:13px}
+  .svc-delivers li{font-size:13px;gap:0.65rem;padding:0.15rem 0}
+  .booking-banner{flex-direction:column;align-items:flex-start;padding:2rem 1.25rem;gap:1.5rem;margin-top:2rem}
+  .booking-text h3{font-size:1.25rem}
+  .booking-text>p{font-size:13px}
+  .bmeta-item{font-size:9px}
+  .btn-book{width:100%;text-align:center;padding:1rem 1.5rem;font-size:14px}
+
+  /* Hero buttons on mobile */
+  .btn-consult{font-size:12px;padding:0.75rem 1.4rem}
 
   /* Contact */
   .contact-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 1.25rem}
@@ -288,7 +301,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .hero-name{font-size:2.2rem}
   .skills-wrap{grid-template-columns:1fr}
   .hero-actions{flex-direction:column}
-  .btn-main,.btn-outline{width:100%;text-align:center}
+  .btn-main,.btn-outline,.btn-consult{width:100%;text-align:center}
 }
 </style>
 </head>
@@ -304,7 +317,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#consulting">Consulting</a></li>
+    <li><a href="#consulting" class="nav-consult-link">Consulting ↗</a></li>
   </ul>
   <div class="nav-actions">
     <a class="nav-resume" href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
@@ -327,16 +340,16 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow"><span class="s-pulse"></span> Available for new roles</div>
+    <div class="hero-eyebrow"><span class="s-pulse"></span> Available for roles & consulting</div>
     <h1 class="hero-name">
       Jireh<br>
       <span class="line2">Andre</span><br>
       <span class="accent-w">Bitangila</span>
     </h1>
-    <p class="hero-desc">Finance analyst and data systems builder. I evaluate impact investments, build analytical infrastructure, and help institutions make better decisions with complex data.</p>
+    <p class="hero-desc">Finance analyst, data systems builder, and independent consultant. I evaluate impact investments, build analytical infrastructure — and help teams implement AI tools, clean data, and communicate better.</p>
     <div class="hero-actions">
-      <a href="#projects" class="btn-main">View my work</a>
-      <a href="https://github.com/jirehandre23" target="_blank" rel="noopener" class="btn-outline">GitHub ↗</a>
+      <a href="#consulting" class="btn-main">Hire me for consulting ↗</a>
+      <a href="#projects" class="btn-consult">View my work</a>
       <a href="Jireh_Andre_Bitangila_Resume.pdf" target="_blank" rel="noopener" class="btn-outline">Resume ↓</a>
     </div>
     <div class="hero-numbers">
@@ -365,23 +378,23 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 <div class="marquee-wrap">
   <div class="marquee-track">
     <div class="marquee-item">Impact Finance</div>
+    <div class="marquee-item">AI Implementation</div>
     <div class="marquee-item">SQL & Python</div>
+    <div class="marquee-item">Resume Writing</div>
     <div class="marquee-item">Investment Screening</div>
+    <div class="marquee-item">Outreach Strategy</div>
     <div class="marquee-item">Geospatial Analysis</div>
+    <div class="marquee-item">Data Consulting</div>
     <div class="marquee-item">Tableau & Power BI</div>
     <div class="marquee-item">ESG Frameworks</div>
     <div class="marquee-item">Charter School Finance</div>
+    <div class="marquee-item">AI Implementation</div>
     <div class="marquee-item">Sustainability Research</div>
+    <div class="marquee-item">Resume Writing</div>
     <div class="marquee-item">Financial Modeling</div>
+    <div class="marquee-item">Outreach Strategy</div>
+    <div class="marquee-item">Data Consulting</div>
     <div class="marquee-item">Impact Finance</div>
-    <div class="marquee-item">SQL & Python</div>
-    <div class="marquee-item">Investment Screening</div>
-    <div class="marquee-item">Geospatial Analysis</div>
-    <div class="marquee-item">Tableau & Power BI</div>
-    <div class="marquee-item">ESG Frameworks</div>
-    <div class="marquee-item">Charter School Finance</div>
-    <div class="marquee-item">Sustainability Research</div>
-    <div class="marquee-item">Financial Modeling</div>
   </div>
 </div>
 
