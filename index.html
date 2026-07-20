@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jireh Andre Bitangila — Finance & Data</title>
+<title>Jireh Andre Bitangila — Data & Finance</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -56,14 +56,12 @@ nav::before{
 .nav-resume{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;padding:0.55rem 1.25rem;border:1px solid var(--border2);color:var(--text2);text-decoration:none;border-radius:2px;transition:all 0.2s}
 .nav-resume:hover{border-color:var(--accent);color:var(--accent)}
 
-/* Hamburger - hidden on desktop */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:600}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
 .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-hamburger.open span:nth-child(2){opacity:0}
 .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* Mobile menu */
 .mobile-menu{
   display:none;position:fixed;top:0;left:0;right:0;bottom:0;
   background:var(--bg);z-index:400;
@@ -169,7 +167,6 @@ footer{padding:2rem 3.5rem;display:flex;justify-content:space-between;align-item
 footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(--text3)}
 .fdot{color:var(--accent)}
 
-/* ── CONSULTING ── */
 .consulting-services{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-bottom:1px}
 .svc-card{background:var(--bg);padding:2.5rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background 0.25s}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease}
@@ -199,7 +196,6 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── TABLET ── */
 @media(max-width:1024px){
   nav{padding:1.25rem 2rem}
   .hero{grid-template-columns:1fr 360px}
@@ -209,19 +205,14 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .section{padding:5rem 2rem}
 }
 
-/* ── MOBILE ── */
 @media(max-width:768px){
   body{cursor:auto}
   .cursor,.cursor-ring{display:none}
-
-  /* Nav */
   nav{padding:1rem 1.25rem}
   .nav-links{display:none}
   .nav-cta{display:none}
   .nav-actions{display:none}
   .nav-hamburger{display:flex}
-
-  /* Hero: photo on top, text below */
   .hero{
     display:flex;flex-direction:column;
     min-height:auto;padding-top:60px;
@@ -246,33 +237,21 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .hero-num-val{font-size:1.8rem}
   .hero-num-label{font-size:9px}
   .hero-tag-badge{bottom:0.75rem;right:0.75rem;font-size:9px;padding:0.35rem 0.65rem}
-
-  /* Sections */
   .section{padding:3.5rem 1.25rem}
   .sec-title{font-size:1.8rem;margin-bottom:2.25rem}
-
-  /* About */
   .about-grid{grid-template-columns:1fr;gap:2.5rem}
   .about-body p{font-size:14px}
   .astat{flex-direction:column;align-items:flex-start;gap:0.25rem;padding:1rem 0}
   .astat-val{font-size:0.95rem}
-
-  /* Projects */
   .projects-grid{grid-template-columns:1fr}
   .pcard{padding:1.75rem 1.25rem}
   .pcard h3{font-size:1rem}
   .pcard p{font-size:13px}
-
-  /* Experience */
   .erow{grid-template-columns:1fr;gap:0.5rem;padding:1.75rem 0}
   .edate{margin-bottom:0.25rem}
-
-  /* Skills */
   .skills-wrap{grid-template-columns:1fr 1fr}
   .scol{padding:1.5rem 1rem}
   .sitems li{font-size:12px}
-
-  /* Consulting */
   .consulting-services{grid-template-columns:1fr}
   .svc-card{padding:1.75rem 1.25rem}
   .svc-card h3{font-size:1.05rem}
@@ -283,22 +262,15 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   .booking-text>p{font-size:13px}
   .bmeta-item{font-size:9px}
   .btn-book{width:100%;text-align:center;padding:1rem 1.5rem;font-size:14px}
-
-  /* Hero buttons on mobile */
   .btn-consult{font-size:12px;padding:0.75rem 1.4rem}
-
-  /* Contact */
   .contact-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 1.25rem}
   .contact-big{font-size:clamp(2rem,9vw,3rem)}
   .cright p{font-size:13px}
   .clink{padding:0.85rem 1rem}
   .clink-val{font-size:12px}
-
-  /* Footer */
   footer{padding:1.5rem 1.25rem;flex-direction:column;gap:0.5rem;text-align:center}
 }
 
-/* ── SMALL PHONES ── */
 @media(max-width:400px){
   .hero-name{font-size:2.2rem}
   .skills-wrap{grid-template-columns:1fr}
@@ -344,13 +316,13 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 
 <div class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow"><span class="s-pulse"></span> Available for roles & consulting</div>
+    <div class="hero-eyebrow"><span class="s-pulse"></span> Incoming MS Data Science student, open to roles & consulting</div>
     <h1 class="hero-name">
       Jireh<br>
       <span class="line2">Andre</span><br>
       <span class="accent-w">Bitangila</span>
     </h1>
-    <p class="hero-desc">Finance analyst, data systems builder, and independent consultant. I evaluate impact investments, build analytical infrastructure — and help teams implement AI tools, clean data, and communicate better.</p>
+    <p class="hero-desc">Data and finance analyst moving deeper into applied data science. I've led quantitative diligence on $60M+ in capital deployments and built AI-enabled tools that cut analyst workflows in half — now building toward machine learning and analytics, starting an MS in Data Science this fall.</p>
     <div class="hero-actions">
       <a href="#consulting" class="btn-main">Hire me for consulting ↗</a>
       <a href="#projects" class="btn-consult">View my work</a>
@@ -366,7 +338,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
         <div class="hero-num-label">Loan vol. reviewed</div>
       </div>
       <div>
-        <div class="hero-num-val">4<sup>+</sup></div>
+        <div class="hero-num-val">3<sup>+</sup></div>
         <div class="hero-num-label">Years experience</div>
       </div>
     </div>
@@ -381,6 +353,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 
 <div class="marquee-wrap">
   <div class="marquee-track">
+    <div class="marquee-item">Data Science</div>
     <div class="marquee-item">Impact Finance</div>
     <div class="marquee-item">AI Implementation</div>
     <div class="marquee-item">SQL & Python</div>
@@ -392,7 +365,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
     <div class="marquee-item">Tableau & Power BI</div>
     <div class="marquee-item">ESG Frameworks</div>
     <div class="marquee-item">Charter School Finance</div>
-    <div class="marquee-item">AI Implementation</div>
+    <div class="marquee-item">Machine Learning</div>
     <div class="marquee-item">Sustainability Research</div>
     <div class="marquee-item">Resume Writing</div>
     <div class="marquee-item">Financial Modeling</div>
@@ -409,13 +382,14 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   </div>
   <div class="about-grid reveal">
     <div class="about-body">
-      <p>I'm a finance analyst and self-taught data builder with a background spanning environmental economics, impact lending, and operational intelligence. My work sits at the intersection of <strong>rigorous financial analysis</strong> and the kind of systems design that makes institutions run better.</p>
-      <p>Currently at <strong>Equitable Facilities Fund</strong> through the Ed Pioneers Fellowship, I evaluate charter school financing transactions, prepare investment screening memos, and analyze debt service coverage, liquidity, and equity-focused indicators to support mission-aligned lending decisions.</p>
-      <p>I'm drawn to questions that require holding financial and non-financial logic simultaneously — and to roles where that kind of thinking can move capital toward better outcomes.</p>
+      <p>I'm a data and finance analyst with a background spanning environmental economics, impact lending, and operational intelligence. My work sits at the intersection of <strong>rigorous financial analysis</strong> and the kind of systems design that makes institutions run better.</p>
+      <p>Most recently, through the <strong>Education Pioneers Fellowship</strong>, I evaluated charter school financing transactions at <strong>Equitable Facilities Fund</strong>, preparing investment screening memos and analyzing debt service coverage, liquidity, and equity-focused indicators to support mission-aligned lending decisions.</p>
+      <p>This fall I'm starting an <strong>MS in Data Science at Monroe University</strong> to build advanced machine learning and statistical computing skills, with a growing focus on data-driven analytics for security and risk detection.</p>
     </div>
     <div class="about-stats">
-      <div class="astat"><span class="astat-lbl">Current role</span><span class="astat-val">Ed Pioneers Fellow @ EFF</span></div>
-      <div class="astat"><span class="astat-lbl">Focus</span><span class="astat-val">Impact Finance</span></div>
+      <div class="astat"><span class="astat-lbl">Incoming</span><span class="astat-val">MS Data Science, Monroe University</span></div>
+      <div class="astat"><span class="astat-lbl">Most recent role</span><span class="astat-val">Analyst, Equitable Facilities Fund</span></div>
+      <div class="astat"><span class="astat-lbl">Focus</span><span class="astat-val">Data Science & Impact Finance</span></div>
       <div class="astat"><span class="astat-lbl">Education</span><span class="astat-val">UC Berkeley, B.S. EnvEcon</span></div>
       <div class="astat"><span class="astat-lbl">Languages</span><span class="astat-val">EN · FR · Lingala</span></div>
       <div class="astat"><span class="astat-lbl">Based in</span><span class="astat-val">New York, NY</span></div>
@@ -475,34 +449,25 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
   </div>
   <div class="exp-list reveal">
     <div class="erow">
-      <div class="edate">Sep 2025<br>Present</div>
+      <div class="edate">Sep 2025<br>May 2026</div>
       <div class="ebody">
         <h3>Analyst, School Lending & Outreach</h3>
-        <div class="eorg">Equitable Facilities Fund · Ed Pioneers Fellow</div>
-        <p>Evaluating charter school financing across 160+ institutional prospects. Preparing investment screening memos incorporating academic performance, enrollment trends, financial sustainability, and equity indicators.</p>
+        <div class="eorg">Equitable Facilities Fund · Education Pioneers Fellow</div>
+        <p>Evaluated charter school financing across 160+ institutional prospects through the Education Pioneers Impact Fellowship (approximately 9% acceptance rate). Prepared investment screening memos incorporating academic performance, enrollment trends, financial sustainability, and equity indicators.</p>
         <div class="etags"><span class="ptag">Impact Finance</span><span class="ptag">Financial Modeling</span><span class="ptag">Salesforce</span><span class="ptag">Tableau</span></div>
       </div>
     </div>
     <div class="erow">
-      <div class="edate">Jun 2025<br>Sep 2025</div>
-      <div class="ebody">
-        <h3>Strategy & Operations Intern</h3>
-        <div class="eorg">Co & Consulting, LLC</div>
-        <p>Built operational dashboards for real-time KPI reporting. Designed API-integrated pipelines cutting data processing time by 50%. Developed process documentation for engineering updates.</p>
-        <div class="etags"><span class="ptag">Excel</span><span class="ptag">Airtable</span><span class="ptag">API Integration</span></div>
-      </div>
-    </div>
-    <div class="erow">
-      <div class="edate">Oct 2024<br>May 2025</div>
+      <div class="edate">Sep 2024<br>May 2025</div>
       <div class="ebody">
         <h3>Assessment & Data Associate</h3>
         <div class="eorg">Success Academy Charter Schools</div>
-        <p>Built KPI dashboards in Looker and Excel for instructional performance and state compliance. Automated validation workflows via Excel macros, reducing manual work by 30%.</p>
-        <div class="etags"><span class="ptag">Looker</span><span class="ptag">Excel</span><span class="ptag">SQL</span></div>
+        <p>Cleaned, validated, and analyzed large student assessment datasets to support instructional planning and leadership reporting. Built recurring reports and dashboards, applying AI prompting and automation to accelerate data validation.</p>
+        <div class="etags"><span class="ptag">Excel</span><span class="ptag">SQL</span><span class="ptag">Dashboards</span></div>
       </div>
     </div>
     <div class="erow">
-      <div class="edate">May 2023<br>May 2024</div>
+      <div class="edate">May 2023<br>Jun 2024</div>
       <div class="ebody">
         <h3>Research Analyst</h3>
         <div class="eorg">Earth Insight</div>
@@ -535,7 +500,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
       <ul class="sitems">
         <li>SQL (MySQL, PostgreSQL)</li>
         <li>Python (Pandas, GeoPandas)</li>
-        <li>Tableau / Power BI / Looker</li>
+        <li>Tableau / Power BI</li>
         <li>Salesforce CRM</li>
         <li>QGIS & Spatial Analysis</li>
         <li>Excel (Advanced)</li>
@@ -562,8 +527,8 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
       <br>
       <div class="scol-lbl">Education</div>
       <ul class="sitems">
+        <li>MS Data Science, Monroe (2028)</li>
         <li>UC Berkeley, B.S. EnvEcon</li>
-        <li>SQL — EDX Bootcamp</li>
       </ul>
     </div>
   </div>
@@ -595,7 +560,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
       <ul class="svc-delivers">
         <li>SQL & Python-based data cleaning</li>
         <li>Pipeline design & documentation</li>
-        <li>KPI dashboards (Power BI, Tableau, Looker)</li>
+        <li>KPI dashboards (Power BI, Tableau)</li>
         <li>Validation workflows & quality checks</li>
       </ul>
     </div>
@@ -648,7 +613,7 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
       <div class="fi">together.</div>
     </div>
     <div class="cright reveal">
-      <p>Open to roles in impact investing, sustainability finance, and data-driven strategy. If you're working on something at the edge of capital and purpose, I'd like to hear about it.</p>
+      <p>Open to roles in data science, impact investing, and analytics. If you're working on something at the edge of data, capital, and purpose, I'd like to hear about it.</p>
       <div class="clinks">
         <a class="clink" href="https://calendar.app.google/rG86A7rdQJjZkF1q8" target="_blank" rel="noopener">
           <div class="clink-l"><span class="clink-type">Book</span><span class="clink-val">Schedule a free 45-min call ↗</span></div>
@@ -678,7 +643,6 @@ footer p{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;color:var(
 </footer>
 
 <script>
-// Custom cursor (desktop only)
 const cursor=document.getElementById('cursor');
 const ring=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
@@ -696,7 +660,6 @@ document.querySelectorAll('a,button').forEach(el=>{
   el.addEventListener('mouseleave',()=>ring.classList.remove('expanded'));
 });
 
-// Hamburger menu
 const hamburger=document.getElementById('hamburger');
 const mobileMenu=document.getElementById('mobileMenu');
 hamburger.addEventListener('click',()=>{
@@ -712,7 +675,6 @@ mobileMenu.querySelectorAll('a').forEach(a=>{
   });
 });
 
-// Scroll reveal
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
