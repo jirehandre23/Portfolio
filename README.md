@@ -10,7 +10,7 @@ Personal portfolio website built with HTML, CSS, and JavaScript. Deployed via Gi
 
 I'm a data and finance analyst based in New York City, currently transitioning into applied data science. This fall I'm starting an MS in Data Science at Monroe University.
 
-Most recently, through the Education Pioneers Fellowship, I worked as an Analyst at [Equitable Facilities Fund](https://equitablefacilities.org), evaluating charter school financing transactions across a national pipeline of 160+ institutional prospects.
+Most recently, through the Education Pioneers Fellowship, I worked as an Analyst at [Equitable Facilities Fund](https://eqfund.org/), evaluating charter school financing transactions across a national pipeline of 160+ institutional prospects.
 
 My background spans impact finance, environmental economics, geospatial analysis, and operational intelligence. I work at the intersection of rigorous financial analysis and the kind of systems design that makes institutions run better.
 
