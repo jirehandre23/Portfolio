@@ -8,7 +8,7 @@ Personal portfolio website built with HTML, CSS, and JavaScript. Deployed via Gi
 
 ## About
 
-I'm a data and finance analyst based in New York City, currently transitioning into applied data science. This fall I'm starting an MS in Data Science at Monroe University.
+I'm a data and finance analyst based in Boston, currently transitioning into applied data science. This fall I'm starting an MPS in Applied Artificial Intelligence at Northeastern University.
 
 Most recently, through the Education Pioneers Fellowship, I worked as an Analyst at [Equitable Facilities Fund](https://eqfund.org/), evaluating charter school financing transactions across a national pipeline of 160+ institutional prospects.
 
