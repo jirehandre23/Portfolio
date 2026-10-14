@@ -1,0 +1,147 @@
+name: fraudwatch
+x-app: &app
+  build: .
+  image: fraudwatch:local
+  environment: &env
+    DATABASE_URL: postgresql://fraudwatch:${POSTGRES_PASSWORD:?Copy .env.example to .env}@postgres:5432/fraudwatch
+    TENANT_API_KEYS: ${TENANT_API_KEYS:?Copy .env.example to .env}
+    DEMO_API_KEY: ${DEMO_API_KEY:?Copy .env.example to .env}
+    KAFKA_BOOTSTRAP: kafka:9092
+    API_URL: http://api:8000
+    ARTIFACT_DIR: /app/artifacts
+  volumes:
+    - model-data:/app/artifacts
+
+services:
+  postgres:
+    image: postgres:16.8
+    environment:
+      POSTGRES_USER: fraudwatch
+      POSTGRES_DB: fraudwatch
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U fraudwatch -d fraudwatch"]
+      interval: 5s
+      retries: 20
+
+  kafka:
+    image: apache/kafka:3.9.1
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+    volumes:
+      - kafka-data:/tmp/kraft-combined-logs
+    healthcheck:
+      test: [CMD-SHELL, "/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+
+  topics:
+    image: apache/kafka:3.9.1
+    depends_on:
+      kafka: {condition: service_healthy}
+    entrypoint: [/bin/sh, -c]
+    command:
+      - |
+        set -e
+        for topic in transactions.raw transactions.features transactions.dlq; do
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --create --if-not-exists --topic "$$topic" --partitions 1 --replication-factor 1
+        done
+
+  train:
+    <<: *app
+    command: python -m fraudwatch.train
+
+  api:
+    <<: *app
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      topics: {condition: service_completed_successfully}
+      train: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  jobmanager:
+    build: ./flink
+    image: fraudwatch-flink:local
+    command: jobmanager
+    ports: ["127.0.0.1:8081:8081"]
+    environment:
+      FLINK_PROPERTIES: "jobmanager.rpc.address: jobmanager"
+    healthcheck:
+      test: [CMD-SHELL, "wget -q -O /dev/null http://localhost:8081/overview"]
+      interval: 5s
+      retries: 30
+
+  taskmanager:
+    image: fraudwatch-flink:local
+    command: taskmanager
+    depends_on:
+      jobmanager: {condition: service_healthy}
+    environment:
+      FLINK_PROPERTIES: |-
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+
+  flink-submit:
+    image: fraudwatch-flink:local
+    depends_on:
+      topics: {condition: service_completed_successfully}
+      jobmanager: {condition: service_healthy}
+      taskmanager: {condition: service_started}
+    environment:
+      FLINK_PROPERTIES: "jobmanager.rpc.address: jobmanager"
+    command: /opt/flink/bin/sql-client.sh -Drest.address=jobmanager -Dexecution.target=remote -f /opt/flink/pipeline.sql
+
+  worker:
+    <<: *app
+    command: python -m fraudwatch.worker
+    restart: on-failure
+    depends_on:
+      api: {condition: service_healthy}
+      flink-submit: {condition: service_completed_successfully}
+
+  dashboard:
+    <<: *app
+    command: streamlit run fraudwatch/dashboard.py --server.address=0.0.0.0
+    ports: ["127.0.0.1:8501:8501"]
+    depends_on:
+      api: {condition: service_healthy}
+
+  mlflow:
+    <<: *app
+    command: mlflow ui --backend-store-uri sqlite:////app/artifacts/mlflow.db --host 0.0.0.0 --port 5000
+    ports: ["127.0.0.1:5000:5000"]
+    depends_on:
+      train: {condition: service_completed_successfully}
+
+  simulator:
+    <<: *app
+    profiles: [demo]
+    command: python -m fraudwatch.simulate --count 500
+    depends_on:
+      worker: {condition: service_started}
+
+volumes:
+  pg-data:
+  model-data:
+  kafka-data:
