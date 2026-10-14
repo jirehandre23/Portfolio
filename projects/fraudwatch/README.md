@@ -123,11 +123,16 @@ security limitations and next engineering increments.
 
 ## Verification
 
-Local unit/API checks: **10 passed**. Training, evaluation, artifact saving/loading
-and prediction parity were executed. The current execution environment has no Docker
-daemon, so local full-stack verification is unavailable. The included GitHub Actions
-workflow runs Docker Compose and the end-to-end smoke test; consult the actual run
-status rather than treating the presence of CI configuration as a passing result.
+**Verified:** 10 local unit/API tests passed; model training, MLflow artifact
+round-trip and populated Streamlit rendering also passed. GitHub Actions independently
+passed model/API checks and the full Docker Compose integration test on commit
+`973f8c112b65bc704cabaab7d5825114727540ee`.
+
+[View the successful verification run](https://github.com/jirehandre23/Portfolio/actions/runs/38652262393).
+The smoke test exercised actual Kafka → Flink → worker → API → PostgreSQL processing,
+label feedback, replay idempotency, conflicting payload rejection and invalid-key
+rejection. This verifies the demonstration path; it is not a load test, disaster
+recovery test or production security audit.
 
 ## Ownership and learning
 
