@@ -27,7 +27,16 @@ services:
       interval: 5s
       retries: 20
 
+  kafka-volume-init:
+    image: busybox:1.37.0
+    user: "0:0"
+    command: chown -R 1000:1000 /data
+    volumes:
+      - kafka-data:/data
+
   kafka:
+    depends_on:
+      kafka-volume-init: {condition: service_completed_successfully}
     image: apache/kafka:3.9.1
     environment:
       KAFKA_NODE_ID: 1
