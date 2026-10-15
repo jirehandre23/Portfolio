@@ -1,0 +1,686 @@
+[
+  {
+    "loan": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "annual_rate": 0.055,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3200000,
+      "expenses": 2700000,
+      "cash": 600000,
+      "covenant": 1.2
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "effective_rate": 0.055,
+      "revenue": 3200000,
+      "expenses": 2700000,
+      "cfads": 500000,
+      "debt_service": 330185.9077724345,
+      "dscr": 1.5142984247062476,
+      "covenant": 1.2,
+      "breach": false,
+      "cash_days": 81.11111111111111,
+      "cash_after_year": 769814.0922275655,
+      "covenant_cash_gap": 103776.91067307856,
+      "revenue_headroom": 0.03243028458533703
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "annual_rate": 0.055,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3200000,
+      "expenses": 2700000,
+      "cash": 600000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "effective_rate": 0.055,
+      "revenue": 3040000.0,
+      "expenses": 2781000.0,
+      "cfads": 259000.0,
+      "debt_service": 330185.9077724345,
+      "dscr": 0.7844065839978364,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 78.74865156418555,
+      "cash_after_year": 528814.0922275655,
+      "covenant_cash_gap": -137223.08932692144,
+      "revenue_headroom": -0.0451391741206979
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "annual_rate": 0.055,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3200000,
+      "expenses": 2700000,
+      "cash": 600000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-001",
+      "name": "Harbor Learning Center",
+      "sector": "Education",
+      "principal": 4000000,
+      "effective_rate": 0.055,
+      "revenue": 2880000.0,
+      "expenses": 2889000.0,
+      "cfads": -9000.0,
+      "debt_service": 330185.9077724345,
+      "dscr": -0.02725737164471246,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 75.80477673935619,
+      "cash_after_year": 260814.09222756547,
+      "covenant_cash_gap": -405223.08932692144,
+      "revenue_headroom": -0.14070246157184774
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "annual_rate": 0.062,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 4500000,
+      "expenses": 3980000,
+      "cash": 450000,
+      "covenant": 1.2
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "effective_rate": 0.062,
+      "revenue": 4500000,
+      "expenses": 3980000,
+      "cfads": 520000,
+      "debt_service": 287179.25202263537,
+      "dscr": 1.8107157684184434,
+      "covenant": 1.2,
+      "breach": false,
+      "cash_days": 41.268844221105525,
+      "cash_after_year": 682820.7479773646,
+      "covenant_cash_gap": 175384.8975728376,
+      "revenue_headroom": 0.03897442168285281
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "annual_rate": 0.062,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 4500000,
+      "expenses": 3980000,
+      "cash": 450000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "effective_rate": 0.082,
+      "revenue": 4275000.0,
+      "expenses": 4099400.0,
+      "cfads": 175600.0,
+      "debt_service": 324990.5555225342,
+      "dscr": 0.5403233940680601,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 40.066839049617016,
+      "cash_after_year": 300609.4444774658,
+      "covenant_cash_gap": -214388.666627041,
+      "revenue_headroom": -0.05014939570223187
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "annual_rate": 0.062,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 4500000,
+      "expenses": 3980000,
+      "cash": 450000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-002",
+      "name": "Northfield Community Clinic",
+      "sector": "Healthcare",
+      "principal": 2800000,
+      "effective_rate": 0.10200000000000001,
+      "revenue": 4050000.0,
+      "expenses": 4258600.0,
+      "cfads": -208600.0,
+      "debt_service": 365189.5110066639,
+      "dscr": -0.5712102722364156,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 38.56901329075283,
+      "cash_after_year": -123789.5110066639,
+      "covenant_cash_gap": -646827.4132079966,
+      "revenue_headroom": -0.15971047239703617
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "annual_rate": 0.06,
+      "remaining_years": 12,
+      "rate_type": "floating",
+      "revenue": 1100000,
+      "expenses": 910000,
+      "cash": 130000,
+      "covenant": 1.15
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "effective_rate": 0.06,
+      "revenue": 1100000,
+      "expenses": 910000,
+      "cfads": 190000,
+      "debt_service": 140522.43075498415,
+      "dscr": 1.352097305598743,
+      "covenant": 1.15,
+      "breach": false,
+      "cash_days": 52.14285714285714,
+      "cash_after_year": 179477.56924501585,
+      "covenant_cash_gap": 28399.204631768254,
+      "revenue_headroom": 0.025817458756152933
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "annual_rate": 0.06,
+      "remaining_years": 12,
+      "rate_type": "floating",
+      "revenue": 1100000,
+      "expenses": 910000,
+      "cash": 130000,
+      "covenant": 1.15
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "effective_rate": 0.08,
+      "revenue": 1045000.0,
+      "expenses": 937300.0,
+      "cfads": 107700.0,
+      "debt_service": 155873.17201010135,
+      "dscr": 0.6909463547262675,
+      "covenant": 1.15,
+      "breach": true,
+      "cash_days": 50.624133148404994,
+      "cash_after_year": 81826.82798989865,
+      "covenant_cash_gap": -71554.14781161654,
+      "revenue_headroom": -0.06847286871925018
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "annual_rate": 0.06,
+      "remaining_years": 12,
+      "rate_type": "floating",
+      "revenue": 1100000,
+      "expenses": 910000,
+      "cash": 130000,
+      "covenant": 1.15
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-003",
+      "name": "Riverside Arts Cooperative",
+      "sector": "Community",
+      "principal": 1200000,
+      "effective_rate": 0.1,
+      "revenue": 990000.0,
+      "expenses": 973700.0,
+      "cfads": 16300.0,
+      "debt_service": 172091.26984713608,
+      "dscr": 0.09471718126363318,
+      "covenant": 1.15,
+      "breach": true,
+      "cash_days": 48.73164218958612,
+      "cash_after_year": -25791.269847136078,
+      "covenant_cash_gap": -181604.96032420648,
+      "revenue_headroom": -0.18343935386283472
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "annual_rate": 0.05,
+      "remaining_years": 25,
+      "rate_type": "fixed",
+      "revenue": 5800000,
+      "expenses": 5100000,
+      "cash": 900000,
+      "covenant": 1.25
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "effective_rate": 0.05,
+      "revenue": 5800000,
+      "expenses": 5100000,
+      "cfads": 700000,
+      "debt_service": 420904.82988574496,
+      "dscr": 1.6630837906754734,
+      "covenant": 1.25,
+      "breach": false,
+      "cash_days": 64.41176470588235,
+      "cash_after_year": 1179095.170114255,
+      "covenant_cash_gap": 173868.9626428188,
+      "revenue_headroom": 0.029977407352210106
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "annual_rate": 0.05,
+      "remaining_years": 25,
+      "rate_type": "fixed",
+      "revenue": 5800000,
+      "expenses": 5100000,
+      "cash": 900000,
+      "covenant": 1.25
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "effective_rate": 0.05,
+      "revenue": 5510000.0,
+      "expenses": 5253000.0,
+      "cfads": 257000.0,
+      "debt_service": 420904.82988574496,
+      "dscr": 0.6105893345765666,
+      "covenant": 1.25,
+      "breach": true,
+      "cash_days": 62.53569388920617,
+      "cash_after_year": 736095.170114255,
+      "covenant_cash_gap": -269131.0373571812,
+      "revenue_headroom": -0.04884410841328157
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "annual_rate": 0.05,
+      "remaining_years": 25,
+      "rate_type": "fixed",
+      "revenue": 5800000,
+      "expenses": 5100000,
+      "cash": 900000,
+      "covenant": 1.25
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-004",
+      "name": "Meadow Technical Academy",
+      "sector": "Education",
+      "principal": 6000000,
+      "effective_rate": 0.05,
+      "revenue": 5220000.0,
+      "expenses": 5457000.0,
+      "cfads": -237000.0,
+      "debt_service": 420904.82988574496,
+      "dscr": -0.5630726548429817,
+      "covenant": 1.25,
+      "breach": true,
+      "cash_days": 60.197910940076966,
+      "cash_after_year": 242095.17011425504,
+      "covenant_cash_gap": -763131.0373571812,
+      "revenue_headroom": -0.14619368531746768
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "annual_rate": 0.065,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 2000000,
+      "expenses": 1700000,
+      "cash": 180000,
+      "covenant": 1.2
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "effective_rate": 0.065,
+      "revenue": 2000000,
+      "expenses": 1700000,
+      "cfads": 300000,
+      "debt_service": 188159.1909042301,
+      "dscr": 1.5943946110647074,
+      "covenant": 1.2,
+      "breach": false,
+      "cash_days": 38.647058823529406,
+      "cash_after_year": 291840.8090957699,
+      "covenant_cash_gap": 74208.97091492388,
+      "revenue_headroom": 0.03710448545746192
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "annual_rate": 0.065,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 2000000,
+      "expenses": 1700000,
+      "cash": 180000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "effective_rate": 0.085,
+      "revenue": 1900000.0,
+      "expenses": 1751000.0,
+      "cfads": 149000.0,
+      "debt_service": 212703.74451192818,
+      "dscr": 0.7005048281679134,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 37.5214163335237,
+      "cash_after_year": 116296.25548807182,
+      "covenant_cash_gap": -106244.4934143138,
+      "revenue_headroom": -0.055918154428586275
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "annual_rate": 0.065,
+      "remaining_years": 15,
+      "rate_type": "floating",
+      "revenue": 2000000,
+      "expenses": 1700000,
+      "cash": 180000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-005",
+      "name": "Cedar Family Services",
+      "sector": "Community",
+      "principal": 1800000,
+      "effective_rate": 0.10500000000000001,
+      "revenue": 1800000.0,
+      "expenses": 1819000.0,
+      "cfads": -19000.0,
+      "debt_service": 238766.1675185888,
+      "dscr": -0.07957576317222909,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 36.11874656404618,
+      "cash_after_year": -77766.1675185888,
+      "covenant_cash_gap": -305519.4010223065,
+      "revenue_headroom": -0.16973300056794804
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "annual_rate": 0.058,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3800000,
+      "expenses": 3350000,
+      "cash": 380000,
+      "covenant": 1.2
+    },
+    "params": [
+      0,
+      0,
+      0
+    ],
+    "expected": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "effective_rate": 0.058,
+      "revenue": 3800000,
+      "expenses": 3350000,
+      "cfads": 450000,
+      "debt_service": 296075.20550322626,
+      "dscr": 1.5198841092929563,
+      "covenant": 1.2,
+      "breach": false,
+      "cash_days": 41.40298507462686,
+      "cash_after_year": 533924.7944967737,
+      "covenant_cash_gap": 94709.75339612848,
+      "revenue_headroom": 0.024923619314770606
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "annual_rate": 0.058,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3800000,
+      "expenses": 3350000,
+      "cash": 380000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.05,
+      0.03,
+      0.02
+    ],
+    "expected": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "effective_rate": 0.058,
+      "revenue": 3610000.0,
+      "expenses": 3450500.0,
+      "cfads": 159500.0,
+      "debt_service": 296075.20550322626,
+      "dscr": 0.5387144787382812,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 40.197072887987254,
+      "cash_after_year": 243424.79449677374,
+      "covenant_cash_gap": -195790.24660387152,
+      "revenue_headroom": -0.05423552537503373
+    }
+  },
+  {
+    "loan": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "annual_rate": 0.058,
+      "remaining_years": 20,
+      "rate_type": "fixed",
+      "revenue": 3800000,
+      "expenses": 3350000,
+      "cash": 380000,
+      "covenant": 1.2
+    },
+    "params": [
+      -0.1,
+      0.07,
+      0.04
+    ],
+    "expected": {
+      "id": "CL-006",
+      "name": "Summit Wellness Center",
+      "sector": "Healthcare",
+      "principal": 3500000,
+      "effective_rate": 0.058,
+      "revenue": 3420000.0,
+      "expenses": 3584500.0,
+      "cfads": -164500.0,
+      "debt_service": 296075.20550322626,
+      "dscr": -0.5556020799526473,
+      "covenant": 1.2,
+      "breach": true,
+      "cash_days": 38.694378574417634,
+      "cash_after_year": -80575.20550322626,
+      "covenant_cash_gap": -519790.2466038715,
+      "revenue_headroom": -0.15198545222335436
+    }
+  }
+]

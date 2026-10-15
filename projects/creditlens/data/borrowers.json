@@ -1,0 +1,80 @@
+[
+  {
+    "id": "CL-001",
+    "name": "Harbor Learning Center",
+    "sector": "Education",
+    "principal": 4000000,
+    "annual_rate": 0.055,
+    "remaining_years": 20,
+    "rate_type": "fixed",
+    "revenue": 3200000,
+    "expenses": 2700000,
+    "cash": 600000,
+    "covenant": 1.2
+  },
+  {
+    "id": "CL-002",
+    "name": "Northfield Community Clinic",
+    "sector": "Healthcare",
+    "principal": 2800000,
+    "annual_rate": 0.062,
+    "remaining_years": 15,
+    "rate_type": "floating",
+    "revenue": 4500000,
+    "expenses": 3980000,
+    "cash": 450000,
+    "covenant": 1.2
+  },
+  {
+    "id": "CL-003",
+    "name": "Riverside Arts Cooperative",
+    "sector": "Community",
+    "principal": 1200000,
+    "annual_rate": 0.06,
+    "remaining_years": 12,
+    "rate_type": "floating",
+    "revenue": 1100000,
+    "expenses": 910000,
+    "cash": 130000,
+    "covenant": 1.15
+  },
+  {
+    "id": "CL-004",
+    "name": "Meadow Technical Academy",
+    "sector": "Education",
+    "principal": 6000000,
+    "annual_rate": 0.05,
+    "remaining_years": 25,
+    "rate_type": "fixed",
+    "revenue": 5800000,
+    "expenses": 5100000,
+    "cash": 900000,
+    "covenant": 1.25
+  },
+  {
+    "id": "CL-005",
+    "name": "Cedar Family Services",
+    "sector": "Community",
+    "principal": 1800000,
+    "annual_rate": 0.065,
+    "remaining_years": 15,
+    "rate_type": "floating",
+    "revenue": 2000000,
+    "expenses": 1700000,
+    "cash": 180000,
+    "covenant": 1.2
+  },
+  {
+    "id": "CL-006",
+    "name": "Summit Wellness Center",
+    "sector": "Healthcare",
+    "principal": 3500000,
+    "annual_rate": 0.058,
+    "remaining_years": 20,
+    "rate_type": "fixed",
+    "revenue": 3800000,
+    "expenses": 3350000,
+    "cash": 380000,
+    "covenant": 1.2
+  }
+]

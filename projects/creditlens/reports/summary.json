@@ -1,0 +1,23 @@
+{
+  "Baseline": {
+    "exposure": 19300000,
+    "dscr": 1.599493148913372,
+    "breaches": 0,
+    "breached_exposure": 0,
+    "breach_share": 0.0
+  },
+  "Moderate": {
+    "exposure": 19300000,
+    "dscr": 0.6363984228273812,
+    "breaches": 6,
+    "breached_exposure": 19300000,
+    "breach_share": 1.0
+  },
+  "Severe": {
+    "exposure": 19300000,
+    "dscr": -0.3410462940928994,
+    "breaches": 6,
+    "breached_exposure": 19300000,
+    "breach_share": 1.0
+  }
+}
