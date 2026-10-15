@@ -15,6 +15,7 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
    if(path.includes('creditlens'))await page.locator('#exposure').filter({hasText:'$19.3M'}).waitFor();
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${name} ${width} ${path}: page overflow`);
    if(path==='/') {
+    if(width<=600)for(const value of await page.locator('.hero-num-val').all()) assert.ok(await value.evaluate(e=>e.scrollWidth<=e.clientWidth+1),`Stat text overlaps at ${width}`);
     const toggle=page.locator('#hamburger');
     if(width<=1100) {
      await toggle.click();await page.locator('#mobileMenu.open').waitFor();

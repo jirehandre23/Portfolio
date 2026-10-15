@@ -48,7 +48,8 @@ body.menu-open { overflow: hidden; }
   .hero-actions { flex-direction: column; }
   .hero-actions a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; font-size: 14px; padding: .8rem 1rem; }
   .hero-numbers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
-  .hero-num-val { font-size: clamp(1.5rem,6vw,1.9rem); }
+  .hero-num-val { font-size: clamp(1.1rem,4.8vw,1.55rem); }
+  .hero-num-val sup { font-size: .6em; }
   .hero-num-label { line-height: 1.7; letter-spacing: .04em; }
   .skills-wrap { grid-template-columns: 1fr; }
   .sitems li { font-size: 14px; line-height: 1.6; }
