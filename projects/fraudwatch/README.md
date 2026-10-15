@@ -136,6 +136,6 @@ recovery test or production security audit.
 
 ## Ownership and learning
 
-Created for Jireh Andre Bitangila's portfolio with AI assistance. The repository
+Created for Jireh Andre Bitangila's portfolio. The repository
 includes a [step-by-step learning guide](docs/LEARNING_GUIDE.md) for explaining,
 modifying and defending the engineering choices in an interview.

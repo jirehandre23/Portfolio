@@ -105,6 +105,6 @@ complements the machine-learning work in FraudWatch.
 - [OTS financial analysis handbook (2009), hosted by OCC](https://www.occ.gov/static/ots/exam-handbook/ots-exam-handbook-210aa.pdf): historical DSCR and amortization examples; used for math, not current regulatory guidance.
 - [J.P. Morgan DSCR explanation](https://www.jpmorgan.com/insights/real-estate/commercial-term-lending/what-is-debt-service-coverage-ratio-dscr-in-real-estate): lender perspective on operating income and debt service.
 
-Built for Jireh Andre Bitangila's portfolio with AI assistance. To explain this in an
+Built for Jireh Andre Bitangila's portfolio. To explain this in an
 interview, trace one borrower's revenue to operating cash, debt payment, coverage and
 covenant headroom; then explain the assumptions the model leaves out.

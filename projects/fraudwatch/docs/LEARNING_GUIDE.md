@@ -11,8 +11,6 @@ and records the model. Streamlit shows feature drift and evaluates performance w
 labels arrive. The demonstration does not establish production fraud performance.”
 
 Read and run the code before describing it as work you can independently maintain.
-This implementation was developed with AI assistance; ownership means understanding,
-testing and extending the choices, not memorizing a script.
 
 ## Follow one transaction
 
