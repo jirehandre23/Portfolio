@@ -8,7 +8,7 @@ Personal portfolio website built with HTML, CSS, and JavaScript. Deployed via Gi
 
 ## About
 
-I'm a data and finance analyst based in Boston, currently transitioning into applied data science. This fall I'm starting an MPS in Applied Artificial Intelligence at Northeastern University.
+I’m a UC Berkeley graduate in Environmental Economics and Policy, currently pursuing my master’s in Applied Artificial Intelligence at Northeastern University. I’m also completing Northeastern’s Forward-Deployed Engineer certification program, currently in progress. My work connects applied AI, financial analytics and practical data systems.
 
 Most recently, through the Education Pioneers Fellowship, I worked as an Analyst at [Equitable Facilities Fund](https://eqfund.org/), evaluating charter school financing transactions across a national pipeline of 160+ institutional prospects.
 
