@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 const {chromium, webkit} = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const base=process.env.PORTFOLIO_TEST_URL || 'http://127.0.0.1:9000';
 fs.mkdirSync('/tmp/portfolio-screenshots',{recursive:true});
-for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,1440]],['webkit',webkit,[390,844]]]) {
+for(const [name,type,widths] of [['webkit',webkit,[390,844]],['chromium',chromium,[320,375,390,430,768,1024,1440]]]) {
  const browser=await type.launch({headless:true});
  for(const width of widths) {
   const context=await browser.newContext({viewport:{width,height:width===844?390:844},isMobile:width<=844,hasTouch:width<=844,reducedMotion:'reduce'});
@@ -14,6 +14,10 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
    await page.goto(base+path,{waitUntil:'networkidle'});
    if(path.includes('creditlens'))await page.locator('#exposure').filter({hasText:'$19.3M'}).waitFor();
    const overflow=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,elements:[...document.querySelectorAll('body *')].filter(e=>{if(e.getBoundingClientRect().right<=document.documentElement.clientWidth+1)return false;for(let p=e.parentElement;p&&p!==document.body;p=p.parentElement)if(['auto','scroll','hidden','clip'].includes(getComputedStyle(p).overflowX))return false;return true;}).map(e=>({tag:e.tagName,cls:e.className,id:e.id,right:e.getBoundingClientRect().right,width:e.getBoundingClientRect().width})).slice(0,15)}));
+   if(overflow.scroll>width+1) {
+    overflow.intrinsic=await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>({tag:e.tagName,id:e.id,cls:e.className,scroll:e.scrollWidth,client:e.clientWidth,overflow:getComputedStyle(e).overflowX,text:e.textContent.slice(0,60)})).slice(0,25));
+    await page.screenshot({path:`/tmp/portfolio-screenshots/overflow-${name}-${path.split('/')[2]||'home'}-${width}.png`,fullPage:true});
+   }
    assert.ok(overflow.scroll<=width+1,`${name} ${width} ${path}: page overflow ${JSON.stringify(overflow)}`);
    if(path==='/') {
     if(width<=600)for(const value of await page.locator('.hero-num-val').all()) assert.ok(await value.evaluate(e=>e.scrollWidth<=e.clientWidth+1),`Stat text overlaps at ${width}`);
