@@ -1,9 +1,9 @@
 name: Responsive portfolio checks
 on:
   push:
-    paths: ['index.html', 'responsive.css', 'projects/creditlens/*.css', 'projects/creditlens/index.html', 'projects/fraudwatch/index.html', 'projects/fraudwatch/web/**', 'scripts/check-responsive.mjs', '.github/workflows/responsive.yml']
+    paths: ['index.html', 'responsive.css', 'projects/creditlens/*.css', 'projects/creditlens/index.html', 'projects/fraudwatch/index.html', 'projects/fraudwatch/web/**', 'projects/shared/**', 'projects/netflix/**', 'projects/hr-analytics/**', 'projects/congo-basin/**', 'projects/investment-memo/**', 'scripts/check-responsive.mjs', '.github/workflows/responsive.yml']
   pull_request:
-    paths: ['index.html', 'responsive.css', 'projects/creditlens/*.css', 'projects/creditlens/index.html', 'projects/fraudwatch/index.html', 'projects/fraudwatch/web/**', 'scripts/check-responsive.mjs', '.github/workflows/responsive.yml']
+    paths: ['index.html', 'responsive.css', 'projects/creditlens/*.css', 'projects/creditlens/index.html', 'projects/fraudwatch/index.html', 'projects/fraudwatch/web/**', 'projects/shared/**', 'projects/netflix/**', 'projects/hr-analytics/**', 'projects/congo-basin/**', 'projects/investment-memo/**', 'scripts/check-responsive.mjs', '.github/workflows/responsive.yml']
 permissions:
   contents: read
 jobs:

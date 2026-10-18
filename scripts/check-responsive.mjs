@@ -10,7 +10,7 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
  for(const width of widths) {
   const context=await browser.newContext({viewport:{width,height:width===844?390:844},isMobile:width<=844,hasTouch:width<=844,reducedMotion:'reduce'});
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  for(const path of ['/','/projects/creditlens/','/projects/fraudwatch/']) {
+  for(const path of ['/','/projects/creditlens/','/projects/fraudwatch/','/projects/netflix/','/projects/hr-analytics/','/projects/congo-basin/','/projects/investment-memo/']) {
    await page.goto(base+path,{waitUntil:'networkidle'});
    if(path.includes('creditlens'))await page.locator('#exposure').filter({hasText:'$19.3M'}).waitFor();
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${name} ${width} ${path}: page overflow`);
@@ -39,6 +39,8 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
     assert.ok(await page.locator('.scroll').first().evaluate(e=>e.clientWidth<=innerWidth));
    }
    if(path.includes('fraudwatch')) {
+    await page.getByRole('link',{name:'Inspect measured results',exact:true}).click();
+    assert.ok(page.url().endsWith('#measured-results'));
     await page.locator('#demo-status').filter({hasText:'Ready'}).waitFor();
     await page.getByRole('button',{name:'Score transaction',exact:true}).click();
     assert.equal(await page.locator('#count').textContent(),'1');
@@ -62,13 +64,46 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
     assert.equal(await page.locator('#count').textContent(),'0');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Fraud demo overflow');
    }
+   if(path.includes('/netflix/')) {
+    await page.locator('#titles').filter({hasText:'8,807'}).waitFor();
+    await page.selectOption('#type','Movie');assert.equal(await page.locator('#titles').textContent(),'6,131');
+    await page.selectOption('#type','TV Show');assert.equal(await page.locator('#titles').textContent(),'2,676');
+    await page.locator('#reset').click();assert.equal(await page.locator('#titles').textContent(),'8,807');
+    await page.selectOption('#query','dates');assert.match(await page.locator('#sql-code').textContent(),/TO_DATE/);
+   }
+   if(path.includes('/hr-analytics/')) {
+    await page.locator('#records').filter({hasText:'21,499'}).waitFor();
+    assert.equal(await page.locator('#active').textContent(),'19,130');
+    await page.selectOption('#department','Auditing');assert.equal(await page.locator('#records').textContent(),'50');
+    assert.equal(await page.locator('#share').textContent(),'16.0%');await page.selectOption('#department','all');
+   }
+   if(path.includes('/congo-basin/')) {
+    await page.locator('#country-count').filter({hasText:'5'}).waitFor();
+    await page.selectOption('#country',{index:1});assert.equal(await page.locator('#country-count').textContent(),'1');
+    await page.selectOption('#area-metric','share');await page.selectOption('#country','all');
+    for(const map of ['tenke','kamoto','basin']) {
+     await page.selectOption('#map',map);await page.locator('#map-image').scrollIntoViewIfNeeded();
+     await page.waitForFunction(()=>{const i=document.querySelector('#map-image');return i.complete&&i.naturalWidth>0;});
+    }
+   }
+   if(path.includes('/investment-memo/')) {
+    await page.locator('#memo-output').filter({hasText:'Harbor Learning Center'}).waitFor();
+    assert.equal(await page.locator('#screening-flag').textContent(),'Requires follow-up');
+    await page.locator('#source-reviewed').check();await page.getByRole('button',{name:'Generate memo',exact:true}).click();
+    assert.equal(await page.locator('#screening-flag').textContent(),'Ready for further diligence');
+    await page.locator('#preset-stressed').click();assert.equal(await page.locator('#screening-flag').textContent(),'Requires follow-up');
+    if(width===390&&name==='chromium') {
+     const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#download-memo').click()]);
+     assert.equal(download.suggestedFilename(),'illustrative-screening-memo.txt');
+    }
+   }
    if(width===390) {
     await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,20));}scrollTo(0,0);});
     await page.screenshot({path:`/tmp/portfolio-screenshots/${name}-${path==='/'?'home':path.split('/')[2]}-${width}.png`,fullPage:true});
    }
   }
   assert.deepEqual(errors,[],`${name} ${width}: JavaScript errors`);
-  console.log(`PASS ${name}: ${width}px, home + both projects, navigation and controls`);
+  console.log(`PASS ${name}: ${width}px, all seven pages, navigation and demo controls`);
   await context.close();
  }
  await browser.close();

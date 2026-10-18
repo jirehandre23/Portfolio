@@ -1,0 +1,18 @@
+name: Project demo data checks
+on:
+  push:
+    paths: ['projects/netflix/**', 'projects/hr-analytics/**', 'projects/congo-basin/**', 'projects/investment-memo/**', 'scripts/test-project-data.mjs', '.github/workflows/project-demos.yml']
+  pull_request:
+    paths: ['projects/netflix/**', 'projects/hr-analytics/**', 'projects/congo-basin/**', 'projects/investment-memo/**', 'scripts/test-project-data.mjs', '.github/workflows/project-demos.yml']
+permissions:
+  contents: read
+jobs:
+  data-and-calculations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-project-data.mjs
+      - run: node projects/investment-memo/test.mjs

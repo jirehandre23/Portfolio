@@ -1,0 +1,5 @@
+export const $=id=>document.getElementById(id);
+export function node(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;}
+export function bars(id,entries,format=x=>x.toLocaleString('en-US')){const root=$(id);root.replaceChildren();const max=Math.max(1,...entries.map(x=>x[1]));if(!entries.length){root.append(node('p','No records match the filters.','small'));return;}for(const [label,value]of entries){const r=node('div','', 'bar-row'),track=node('div','', 'bar-track'),fill=node('div','', 'bar-fill');fill.style.width=`${100*value/max}%`;track.append(fill);r.append(node('span',label,'bar-label'),track,node('span',format(value),'bar-value'));root.append(r);}}
+export function table(id,rows){const root=$(id);root.replaceChildren();for(const row of rows){const tr=document.createElement('tr');row.forEach(x=>tr.append(node('td',String(x))));root.append(tr);}}
+export async function data(url){const r=await fetch(url);if(!r.ok)throw new Error('Project data could not be loaded.');return r.json();}
