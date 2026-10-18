@@ -23,6 +23,11 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
       - run: python -m fraudwatch.train
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: PYTHONPATH=. python scripts/export_web.py
+      - run: node tests/web_parity.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: synthetic-evaluation

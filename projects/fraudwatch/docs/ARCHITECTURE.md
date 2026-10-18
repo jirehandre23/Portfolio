@@ -1,5 +1,20 @@
 # Architecture and trade-offs
 
+## Public browser demonstration
+
+GitHub Pages serves a numeric tree ensemble exported from the trained XGBoost model.
+`web/scorer.mjs` applies the same input validation and log-amount transformation,
+walks the exported trees, and converts the margin to a binary-logistic score. Float32
+feature comparisons and margin accumulation are tested against Python predictions.
+This browser session has no backend or persistent transaction store. Synthetic
+sample labels are revealed separately for educational metrics; they are never model
+features. The model's weak held-out recall remains documented and unchanged.
+
+`web/model.json` records the original model hash and run version. Regenerate it with
+`scripts/export_web.py` after training. The backend uses the MLflow artifact rather
+than this browser representation. Full-stream integration and browser inference are
+separate verification paths.
+
 ## Data path
 
 ```mermaid

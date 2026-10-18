@@ -21,6 +21,30 @@ stream processing, versioned scoring, tenant-scoped analytics and model monitori
 | Monitoring | Streamlit, feature PSI, label coverage, labeled performance and decay heuristic |
 | Delivery | Docker Compose, unit/API tests and a full-stack smoke-test workflow |
 
+## Live browser demo
+
+[Try transaction scoring on the portfolio](https://jirehandre23.github.io/Portfolio/projects/fraudwatch/#try-demo).
+The public page now loads an exported numeric XGBoost ensemble and scores fictional
+transactions directly in the browser. It includes editable inputs, review-threshold
+controls, normal/shifted synthetic batches, delayed label reveal and confusion counts.
+Refreshing clears the session; there is no server-side persistence in this demo.
+
+This is real model inference, not a hand-written risk formula. Its scores are checked
+against Python XGBoost on 1,004 inputs within 0.000002 absolute tolerance. Scores are
+not independently calibrated probabilities. The public browser demo does not run
+Kafka, Flink, FastAPI or PostgreSQL; the full stack below runs separately with Docker.
+
+To regenerate browser assets after training:
+
+```bash
+PYTHONPATH=. python scripts/export_web.py
+node tests/web_parity.mjs
+```
+
+The exporter supports numeric binary-logistic `gbtree` models only and rejects
+categorical trees or unsupported objectives. It publishes synthetic samples and a
+compact model representation; no credentials or real transaction data are included.
+
 ## Quick start — Docker
 
 Requirements: Docker Engine/Desktop with Compose v2, internet access for images and
@@ -31,9 +55,9 @@ Python and Java dependencies. All commands below run from this directory.
 cp .env.example .env
 docker compose up --build -d
 # Wait for training and health checks, then send normal traffic:
-docker compose --profile demo run --rm simulator
+docker compose --profile demo run --rm --no-deps simulator
 # Send a deliberately shifted distribution and concept:
-docker compose --profile demo run --rm simulator python -m fraudwatch.simulate --count 500 --shift
+docker compose --profile demo run --rm --no-deps simulator python -m fraudwatch.simulate --count 500 --shift
 ```
 
 Open:
@@ -42,6 +66,9 @@ Open:
 - API documentation: http://localhost:8000/docs — enter `X-API-Key` for protected requests.
 - MLflow runs: http://localhost:5000.
 - Flink job: http://localhost:8081.
+
+Start the stack first. The simulator commands use `--no-deps` to avoid restarting
+completed training or Flink-submission jobs during an active demo.
 
 The simulator publishes transactions without labels, then waits for scoring and
 submits labels separately. The synthetic delay is seconds, not realistic chargeback timing.

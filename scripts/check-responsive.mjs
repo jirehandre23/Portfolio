@@ -38,6 +38,30 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
     await page.getByRole('button',{name:'Moderate',exact:true}).click();assert.equal(await page.locator('#dscr').textContent(),'0.64×');
     assert.ok(await page.locator('.scroll').first().evaluate(e=>e.clientWidth<=innerWidth));
    }
+   if(path.includes('fraudwatch')) {
+    await page.locator('#demo-status').filter({hasText:'Ready'}).waitFor();
+    await page.getByRole('button',{name:'Score transaction',exact:true}).click();
+    assert.equal(await page.locator('#count').textContent(),'1');
+    const routine=parseFloat(await page.locator('#latest-score').textContent());
+    await page.getByRole('button',{name:'Unusual example',exact:true}).click();
+    await page.getByRole('button',{name:'Score transaction',exact:true}).click();
+    const unusual=parseFloat(await page.locator('#latest-score').textContent());
+    assert.ok(unusual>routine,'Examples should yield different actual model scores');
+    await page.getByRole('button',{name:'Confirmed fraud',exact:true}).click();
+    assert.equal(await page.locator('#labeled').textContent(),'1');
+    await page.getByRole('button',{name:'Load normal sample',exact:true}).click();
+    assert.equal(await page.locator('#count').textContent(),'500');
+    assert.equal(await page.locator('#labeled').textContent(),'0');
+    await page.getByRole('button',{name:'Reveal sample labels',exact:true}).click();
+    assert.equal(await page.locator('#labeled').textContent(),'500');
+    await page.getByRole('button',{name:'Load shifted sample',exact:true}).click();
+    assert.equal(await page.locator('#labeled').textContent(),'0');
+    await page.getByRole('button',{name:'Reveal sample labels',exact:true}).click();
+    assert.equal(await page.locator('#labeled').textContent(),'500');
+    await page.getByRole('button',{name:'Clear session',exact:true}).click();
+    assert.equal(await page.locator('#count').textContent(),'0');
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Fraud demo overflow');
+   }
    if(width===390) {
     await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=600){scrollTo(0,y);await new Promise(r=>setTimeout(r,20));}scrollTo(0,0);});
     await page.screenshot({path:`/tmp/portfolio-screenshots/${name}-${path==='/'?'home':path.split('/')[2]}-${width}.png`,fullPage:true});
