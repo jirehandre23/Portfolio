@@ -13,7 +13,8 @@ for(const [name,type,widths] of [['chromium',chromium,[320,375,390,430,768,1024,
   for(const path of ['/','/projects/creditlens/','/projects/fraudwatch/','/projects/netflix/','/projects/hr-analytics/','/projects/congo-basin/','/projects/investment-memo/']) {
    await page.goto(base+path,{waitUntil:'networkidle'});
    if(path.includes('creditlens'))await page.locator('#exposure').filter({hasText:'$19.3M'}).waitFor();
-   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`${name} ${width} ${path}: page overflow`);
+   const overflow=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,elements:[...document.querySelectorAll('body *')].map(e=>({tag:e.tagName,cls:e.className,id:e.id,right:e.getBoundingClientRect().right,width:e.getBoundingClientRect().width})).filter(e=>e.right>innerWidth+1).slice(0,12)}));
+   assert.ok(overflow.scroll<=width+1,`${name} ${width} ${path}: page overflow ${JSON.stringify(overflow)}`);
    if(path==='/') {
     if(width<=600)for(const value of await page.locator('.hero-num-val').all()) assert.ok(await value.evaluate(e=>e.scrollWidth<=e.clientWidth+1),`Stat text overlaps at ${width}`);
     const toggle=page.locator('#hamburger');
